@@ -1,0 +1,156 @@
+---
+const pathname = Astro.url.pathname;
+const isActive = (path: string) => {
+  if (path === '/' && pathname === '/') return true;
+  if (path !== '/' && pathname.startsWith(path)) return true;
+  return false;
+};
+---
+
+<header class="fixed top-0 left-0 right-0 z-50 bg-canvas/80 dark:bg-[#0E100F]/88 backdrop-blur-2xl border-b border-border/60 dark:border-white/[0.07] transition-colors duration-400">
+  <div class="max-w-7xl mx-auto px-6 h-[68px] flex items-center justify-between">
+    <!-- Logo -->
+    <a href="/" class="flex items-center justify-center px-3 py-1.5 bg-white/85 dark:bg-white/90 backdrop-blur-md rounded-md shadow-sm border border-white/40 dark:border-white/80 dark:shadow-[0_0_16px_rgba(107,143,113,0.55)] transition-all duration-300 hover:scale-[1.02] focus:outline-none">
+      <img src="/images/logo.png" alt="Challa's Counsel Logo" class="h-[40px] w-auto object-contain transition-all duration-300" />
+    </a>
+
+    <!-- Desktop Navigation -->
+    <nav class="hidden md:flex items-center gap-0.5">
+      <a href="/" class={`relative text-sm font-medium px-5 py-2 transition-all duration-200 ${isActive('/') ? 'text-primary dark:text-[#89B890]' : 'text-body dark:text-[#D7E4DA]/60 hover:text-ink dark:hover:text-[#E8EDE9]'}`}>
+        Home
+        {isActive('/') && <span class="absolute bottom-0 left-5 right-5 h-[2px] bg-primary dark:bg-[#89B890] rounded-full"></span>}
+      </a>
+      <a href="/about" class={`relative text-sm font-medium px-5 py-2 transition-all duration-200 ${isActive('/about') ? 'text-primary dark:text-[#89B890]' : 'text-body dark:text-[#D7E4DA]/60 hover:text-ink dark:hover:text-[#E8EDE9]'}`}>
+        About
+        {isActive('/about') && <span class="absolute bottom-0 left-5 right-5 h-[2px] bg-primary dark:bg-[#89B890] rounded-full"></span>}
+      </a>
+      <a href="/services" class={`relative text-sm font-medium px-5 py-2 transition-all duration-200 ${isActive('/services') ? 'text-primary dark:text-[#89B890]' : 'text-body dark:text-[#D7E4DA]/60 hover:text-ink dark:hover:text-[#E8EDE9]'}`}>
+        Services
+        {isActive('/services') && <span class="absolute bottom-0 left-5 right-5 h-[2px] bg-primary dark:bg-[#89B890] rounded-full"></span>}
+      </a>
+      <a href="/insights" class={`relative text-sm font-medium px-5 py-2 transition-all duration-200 ${isActive('/insights') ? 'text-primary dark:text-[#89B890]' : 'text-body dark:text-[#D7E4DA]/60 hover:text-ink dark:hover:text-[#E8EDE9]'}`}>
+        Insights
+        {isActive('/insights') && <span class="absolute bottom-0 left-5 right-5 h-[2px] bg-primary dark:bg-[#89B890] rounded-full"></span>}
+      </a>
+    </nav>
+
+    <!-- Right Controls -->
+    <div class="hidden md:flex items-center gap-4">
+
+      <!-- Theme Toggle – clean square button with sharp rounded-[4px] edges -->
+      <button
+        id="theme-toggle"
+        aria-label="Toggle theme"
+        class="w-9 h-9 rounded-[4px] border border-border/70 dark:border-white/[0.10] flex items-center justify-center text-body dark:text-[#D7E4DA]/55 hover:bg-canvas-warm dark:hover:bg-[#1F2420] transition-all duration-200 cursor-pointer"
+      >
+        <!-- Sun – shown in dark mode so user can click back to light -->
+        <svg id="theme-toggle-sun" class="w-[16px] h-[16px] hidden" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m0 13.5V21M4.22 4.22l1.59 1.59m12.38 12.38l1.59 1.59M21 12h-2.25M6 12H3.75m14.33-6.06l-1.59 1.59m-11.22 9.62l-1.59 1.59M12 7.5a4.5 4.5 0 1 0 0 9 4.5 4.5 0 0 0 0-9Z" />
+        </svg>
+        <!-- Moon – shown in light mode so user can click to go dark -->
+        <svg id="theme-toggle-moon" class="w-[16px] h-[16px] block" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.72 9.72 0 0 1 18 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 0 0 3 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 0 0 9.002-5.998Z" />
+        </svg>
+      </button>
+
+      <a
+        href="/book"
+        class="inline-flex items-center gap-2 px-6 py-2.5 rounded-md bg-primary hover:bg-primary-dark text-ink font-semibold text-sm transition-all duration-200 hover:shadow-lg hover:shadow-primary/20 active:scale-[0.97]"
+      >
+        Book Session
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="w-3.5 h-3.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" /></svg>
+      </a>
+    </div>
+
+    <!-- Mobile Controls -->
+    <div class="flex items-center gap-2 md:hidden">
+      <button
+        id="theme-toggle-mobile"
+        aria-label="Toggle theme"
+        class="w-9 h-9 rounded-[4px] border border-border/70 dark:border-white/[0.10] flex items-center justify-center text-body dark:text-[#D7E4DA]/55 hover:bg-canvas-warm dark:hover:bg-[#1F2420] transition-colors cursor-pointer"
+      >
+        <svg id="theme-toggle-sun-mobile" class="w-[16px] h-[16px] hidden" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m0 13.5V21M4.22 4.22l1.59 1.59m12.38 12.38l1.59 1.59M21 12h-2.25M6 12H3.75m14.33-6.06l-1.59 1.59m-11.22 9.62l-1.59 1.59M12 7.5a4.5 4.5 0 1 0 0 9 4.5 4.5 0 0 0 0-9Z" />
+        </svg>
+        <svg id="theme-toggle-moon-mobile" class="w-[16px] h-[16px] block" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.72 9.72 0 0 1 18 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 0 0 3 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 0 0 9.002-5.998Z" />
+        </svg>
+      </button>
+
+      <button
+        id="mobile-menu-btn"
+        aria-label="Toggle Navigation Menu"
+        class="w-9 h-9 rounded-[4px] border border-border/70 dark:border-white/[0.10] flex items-center justify-center text-body dark:text-[#D7E4DA]/55 transition-colors cursor-pointer"
+      >
+        <svg id="hamburger-icon" class="w-5 h-5 block" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+        </svg>
+        <svg id="close-icon" class="w-5 h-5 hidden" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile Drawer -->
+  <div
+    id="mobile-menu-drawer"
+    class="hidden md:hidden bg-canvas dark:bg-[#0E100F] border-t border-border/60 dark:border-white/[0.07] px-6 py-6 flex flex-col gap-0.5 shadow-2xl transition-all duration-300"
+  >
+    <a href="/" class={`text-base font-semibold py-3 px-4 rounded-[4px] transition-colors ${isActive('/') ? 'text-primary dark:text-[#89B890] bg-primary/8' : 'text-ink dark:text-[#D7E4DA]/80 hover:bg-canvas-warm dark:hover:bg-[#1B1F1C]'}`}>Home</a>
+    <a href="/about" class={`text-base font-semibold py-3 px-4 rounded-[4px] transition-colors ${isActive('/about') ? 'text-primary dark:text-[#89B890] bg-primary/8' : 'text-ink dark:text-[#D7E4DA]/80 hover:bg-canvas-warm dark:hover:bg-[#1B1F1C]'}`}>About</a>
+    <a href="/services" class={`text-base font-semibold py-3 px-4 rounded-[4px] transition-colors ${isActive('/services') ? 'text-primary dark:text-[#89B890] bg-primary/8' : 'text-ink dark:text-[#D7E4DA]/80 hover:bg-canvas-warm dark:hover:bg-[#1B1F1C]'}`}>Services</a>
+    <a href="/insights" class={`text-base font-semibold py-3 px-4 rounded-[4px] transition-colors ${isActive('/insights') ? 'text-primary dark:text-[#89B890] bg-primary/8' : 'text-ink dark:text-[#D7E4DA]/80 hover:bg-canvas-warm dark:hover:bg-[#1B1F1C]'}`}>Insights</a>
+    <div class="pt-4 mt-3 border-t border-border/60 dark:border-white/[0.07]">
+      <a href="/book" class="inline-flex items-center justify-center w-full py-3.5 rounded-md bg-primary hover:bg-primary-dark text-ink font-semibold text-sm transition-all">Book Session</a>
+    </div>
+  </div>
+</header>
+
+<script>
+  function syncToggleIcons(isDark: boolean) {
+    document.getElementById('theme-toggle-sun')?.classList.toggle('hidden', !isDark);
+    document.getElementById('theme-toggle-moon')?.classList.toggle('hidden', isDark);
+    document.getElementById('theme-toggle-sun-mobile')?.classList.toggle('hidden', !isDark);
+    document.getElementById('theme-toggle-moon-mobile')?.classList.toggle('hidden', isDark);
+  }
+
+  function setupTheme() {
+    const isDark = document.documentElement.classList.contains('dark');
+    syncToggleIcons(isDark);
+
+    function toggleTheme() {
+      const nowDark = document.documentElement.classList.toggle('dark');
+      localStorage.setItem('theme', nowDark ? 'dark' : 'light');
+      const meta = document.getElementById('theme-color');
+      if (meta) meta.setAttribute('content', nowDark ? '#0E100F' : '#F5F5F3');
+      syncToggleIcons(nowDark);
+    }
+
+    [
+      document.getElementById('theme-toggle'),
+      document.getElementById('theme-toggle-mobile'),
+    ].forEach(t => t?.addEventListener('click', toggleTheme));
+  }
+
+  function setupMobileMenu() {
+    const btn       = document.getElementById('mobile-menu-btn');
+    const drawer    = document.getElementById('mobile-menu-drawer');
+    const hamburger = document.getElementById('hamburger-icon');
+    const close     = document.getElementById('close-icon');
+    btn?.addEventListener('click', () => {
+      const hidden = drawer?.classList.toggle('hidden');
+      hamburger?.classList.toggle('hidden', !hidden);
+      hamburger?.classList.toggle('block', !!hidden);
+      close?.classList.toggle('hidden', !!hidden);
+      close?.classList.toggle('block', !hidden);
+    });
+  }
+
+  setupTheme();
+  setupMobileMenu();
+  document.addEventListener('astro:after-swap', () => {
+    setupTheme();
+    setupMobileMenu();
+  });
+</script>

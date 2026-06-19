@@ -1,0 +1,198 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout 
+  title="Therapeutic Services & Session Rates | Challa's Counsel" 
+  description="Explore session structures, services offered, and pricing with Challa's Counsel."
+>
+  <!-- Hero -->
+  <section class="relative min-h-[40vh] flex items-center bg-canvas pt-32 pb-20">
+    <div class="max-w-7xl mx-auto px-6 w-full">
+      <div class="max-w-3xl mx-auto text-center reveal">
+        <span class="text-[11px] font-semibold uppercase tracking-[0.2em] text-primary block mb-4">Practice Overview</span>
+        <h1 class="font-sans font-bold text-4xl sm:text-5xl lg:text-6xl text-ink leading-tight tracking-tight">
+          Evidence-based care, <span class="font-display italic font-normal text-secondary">transparently structured</span>.
+        </h1>
+        <p class="text-base sm:text-lg text-body leading-relaxed max-w-xl mx-auto mt-6">
+          An overview of session formats, clinical rates, and out-of-network insurance reimbursement guidelines.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing Cards -->
+  <section class="py-24 bg-canvas border-t border-border/40">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-10 lg:gap-12 stagger-children">
+        <!-- Individual -->
+        <div class="bg-card rounded-lg p-8 border border-border/50 shadow-card flex flex-col hover:shadow-card-hover transition-all duration-300">
+          <div class="flex justify-between items-start mb-6">
+            <span class="text-[10px] font-bold uppercase tracking-wider text-body bg-canvas-warm px-3 py-1.5 rounded-sm">Individual</span>
+            <span class="font-sans font-bold text-2xl text-secondary">$180</span>
+          </div>
+          <h3 class="font-sans font-bold text-xl text-ink mb-3">Individual Counselling</h3>
+          <p class="text-sm text-body leading-relaxed mb-6">Dedicated clinical support addressing anxiety, depression, career guidance, and life changes.</p>
+          <ul class="space-y-3.5 text-sm text-body mb-8 flex-grow">
+            <li class="flex items-center gap-3">
+              <span class="w-5 h-5 rounded-sm bg-primary/15 flex items-center justify-center shrink-0">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.2" stroke="currentColor" class="w-3.5 h-3.5 text-secondary"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>
+              </span>
+              50-minute sessions
+            </li>
+            <li class="flex items-center gap-3">
+              <span class="w-5 h-5 rounded-sm bg-primary/15 flex items-center justify-center shrink-0">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.2" stroke="currentColor" class="w-3.5 h-3.5 text-secondary"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>
+              </span>
+              Weekly or bi-weekly cadence
+            </li>
+            <li class="flex items-center gap-3">
+              <span class="w-5 h-5 rounded-sm bg-primary/15 flex items-center justify-center shrink-0">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.2" stroke="currentColor" class="w-3.5 h-3.5 text-secondary"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>
+              </span>
+              Telehealth or secure office
+            </li>
+          </ul>
+          <a href="/book" class="inline-flex items-center justify-center w-full py-3.5 rounded-sm bg-ink hover:bg-zinc-800 text-white font-semibold text-sm transition-all duration-300 active:scale-[0.98]">Schedule Session</a>
+        </div>
+
+        <!-- Couples -->
+        <div class="bg-card rounded-lg p-8 border-2 border-primary shadow-card flex flex-col relative hover:shadow-card-hover transition-all duration-300">
+          <span class="absolute -top-3.5 left-1/2 -translate-x-1/2 px-4 py-1 rounded-sm bg-primary text-ink text-[10px] font-bold uppercase tracking-wider">Relational Specialty</span>
+          <div class="flex justify-between items-start mb-6 pt-3">
+            <span class="text-[10px] font-bold uppercase tracking-wider text-body bg-canvas-warm px-3 py-1.5 rounded-sm">Partners</span>
+            <span class="font-sans font-bold text-2xl text-secondary">$220</span>
+          </div>
+          <h3 class="font-sans font-bold text-xl text-ink mb-3">Couples & Family Counselling</h3>
+          <p class="text-sm text-body leading-relaxed mb-6">Rebuild emotional trust, unpack conflict patterns, and foster healthy family boundaries.</p>
+          <ul class="space-y-3.5 text-sm text-body mb-8 flex-grow">
+            <li class="flex items-center gap-3">
+              <span class="w-5 h-5 rounded-sm bg-primary/15 flex items-center justify-center shrink-0">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.2" stroke="currentColor" class="w-3.5 h-3.5 text-secondary"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>
+              </span>
+              75-minute sessions
+            </li>
+            <li class="flex items-center gap-3">
+              <span class="w-5 h-5 rounded-sm bg-primary/15 flex items-center justify-center shrink-0">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.2" stroke="currentColor" class="w-3.5 h-3.5 text-secondary"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>
+              </span>
+              Bi-weekly or intensive focus
+            </li>
+            <li class="flex items-center gap-3">
+              <span class="w-5 h-5 rounded-sm bg-primary/15 flex items-center justify-center shrink-0">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.2" stroke="currentColor" class="w-3.5 h-3.5 text-secondary"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>
+              </span>
+              In-person sessions preferred
+            </li>
+          </ul>
+          <a href="/book" class="inline-flex items-center justify-center w-full py-3.5 rounded-sm bg-primary hover:bg-primary-dark text-ink font-semibold text-sm transition-all duration-300 active:scale-[0.98]">Schedule Session</a>
+        </div>
+
+        <!-- Consultation -->
+        <div class="bg-card rounded-lg p-8 border border-border/50 shadow-card flex flex-col hover:shadow-card-hover transition-all duration-300">
+          <div class="flex justify-between items-start mb-6">
+            <span class="text-[10px] font-bold uppercase tracking-wider text-body bg-canvas-warm px-3 py-1.5 rounded-sm">Consultation</span>
+            <span class="font-sans font-bold text-2xl text-secondary">Free</span>
+          </div>
+          <h3 class="font-sans font-bold text-xl text-ink mb-3">Discovery Call</h3>
+          <p class="text-sm text-body leading-relaxed mb-6">A brief phone or secure video call to map out goals and test mutual chemistry.</p>
+          <ul class="space-y-3.5 text-sm text-body mb-8 flex-grow">
+            <li class="flex items-center gap-3">
+              <span class="w-5 h-5 rounded-sm bg-primary/15 flex items-center justify-center shrink-0">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.2" stroke="currentColor" class="w-3.5 h-3.5 text-secondary"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>
+              </span>
+              15-minute call
+            </li>
+            <li class="flex items-center gap-3">
+              <span class="w-5 h-5 rounded-sm bg-primary/15 flex items-center justify-center shrink-0">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.2" stroke="currentColor" class="w-3.5 h-3.5 text-secondary"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>
+              </span>
+              Discuss therapy logistics
+            </li>
+            <li class="flex items-center gap-3">
+              <span class="w-5 h-5 rounded-sm bg-primary/15 flex items-center justify-center shrink-0">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.2" stroke="currentColor" class="w-3.5 h-3.5 text-secondary"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>
+              </span>
+              No ongoing obligation
+            </li>
+          </ul>
+          <a href="/book" class="inline-flex items-center justify-center w-full py-3.5 rounded-sm border border-border bg-white hover:bg-canvas-warm text-ink font-semibold text-sm transition-all duration-300 active:scale-[0.98]">Schedule Free Call</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Insurance -->
+  <section class="py-24 bg-canvas border-t border-border/40">
+    <div class="max-w-4xl mx-auto px-6 reveal">
+      <div class="bg-card rounded-lg p-10 sm:p-12 border border-border/50 shadow-card space-y-7 hover:shadow-card-hover transition-all duration-300">
+        <div class="space-y-4">
+          <span class="text-[11px] font-semibold uppercase tracking-[0.2em] text-primary">Insurance Policy</span>
+          <h2 class="font-sans font-bold text-3xl text-ink leading-tight">Navigating Out-of-Network Reimbursement</h2>
+        </div>
+        <p class="text-body leading-relaxed">
+          I operate as an <strong class="text-ink">Out-of-Network provider</strong> to ensure client confidentiality and maximize treatment flexibility without constraint from insurance plans.
+        </p>
+        <div class="border-t border-border/60 pt-7 space-y-5">
+          <h4 class="font-sans font-bold text-ink text-lg">What is a Superbill?</h4>
+          <p class="text-sm text-body leading-relaxed">
+            A Superbill is a structured invoice detailing clinical diagnosis and service codes. Many insurance providers reimburse between <strong class="text-ink">60% and 80%</strong> of out-of-network services.
+          </p>
+          <div class="p-6 rounded-md bg-canvas border border-primary/20 text-sm text-body space-y-3">
+            <p class="font-sans font-bold text-secondary text-[11px] uppercase tracking-wider">Suggested questions for your insurer:</p>
+            <ul class="list-disc pl-5 space-y-1.5">
+              <li>"Do I have out-of-network behavioral health benefits for office/video therapy?"</li>
+              <li>"What is my annual out-of-network deductible?"</li>
+              <li>"What is the reimbursement percentage for clinical code 90834 or 90847?"</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="py-24 bg-canvas border-t border-border/40">
+    <div class="max-w-3xl mx-auto px-6 reveal">
+      <div class="text-center mb-16 space-y-4">
+        <span class="text-[11px] font-semibold uppercase tracking-[0.2em] text-primary">Common Questions</span>
+        <h2 class="font-sans font-bold text-4xl text-ink leading-tight tracking-tight">Frequently Asked Questions</h2>
+      </div>
+      
+      <div class="space-y-4">
+        <!-- FAQ 1 -->
+        <details class="group bg-card rounded-md border border-border/50 p-6 shadow-card transition-all duration-300" open>
+          <summary class="flex items-center justify-between font-semibold text-ink cursor-pointer list-none text-lg">
+            <span>What is your cancellation policy?</span>
+            <span class="w-6 h-6 rounded-full bg-canvas-warm flex items-center justify-center text-ink text-sm leading-none transition-transform duration-300 group-open:rotate-45">+</span>
+          </summary>
+          <div class="pt-4 text-sm text-body leading-relaxed">
+            I maintain a strict 24-hour cancellation policy. If you miss or reschedule an appointment with less than 24 hours' notice, you will be billed for the full session cost.
+          </div>
+        </details>
+        
+        <!-- FAQ 2 -->
+        <details class="group bg-card rounded-md border border-border/50 p-6 shadow-card transition-all duration-300">
+          <summary class="flex items-center justify-between font-semibold text-ink cursor-pointer list-none text-lg">
+            <span>How often will we meet?</span>
+            <span class="w-6 h-6 rounded-full bg-canvas-warm flex items-center justify-center text-ink text-sm leading-none transition-transform duration-300 group-open:rotate-45">+</span>
+          </summary>
+          <div class="pt-4 text-sm text-body leading-relaxed">
+            We typically start with weekly sessions to establish safety and momentum. As symptoms stabilize and you begin executing goals, we can transition to a bi-weekly cadence.
+          </div>
+        </details>
+        
+        <!-- FAQ 3 -->
+        <details class="group bg-card rounded-md border border-border/50 p-6 shadow-card transition-all duration-300">
+          <summary class="flex items-center justify-between font-semibold text-ink cursor-pointer list-none text-lg">
+            <span>Are online telehealth sessions effective?</span>
+            <span class="w-6 h-6 rounded-full bg-canvas-warm flex items-center justify-center text-ink text-sm leading-none transition-transform duration-300 group-open:rotate-45">+</span>
+          </summary>
+          <div class="pt-4 text-sm text-body leading-relaxed">
+            Yes. Clinical studies show that HIPAA-compliant online therapy yields outcomes equivalent to face-to-face sessions for stress, anxiety, and burnout recovery.
+          </div>
+        </details>
+      </div>
+    </div>
+  </section>
+</Layout>

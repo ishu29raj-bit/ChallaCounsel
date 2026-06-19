@@ -1,0 +1,575 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #6B8F71;
+  --color-primary-dark: #547A59;
+  --color-secondary: #C8957A;
+  --color-secondary-dark: #A6765D;
+  --color-on-primary: #111111;
+  --color-dark: #0F1210;
+  --color-dark-lighter: #161B17;
+  --color-dark-card: #1B201C;
+  --color-ink: #111111;
+
+  /* RGBA so body texture bleeds through sections at ~10% intensity */
+  --color-body:         rgba(17, 17, 17, 0.60);
+  --color-body-light:   rgba(17, 17, 17, 0.40);
+  --color-muted:        rgba(17, 17, 17, 0.28);
+  --color-canvas:       rgba(245, 245, 243, 0.90);
+  --color-canvas-warm:  rgba(234, 234, 231, 0.90);
+  --color-canvas-green: rgba(218, 229, 220, 0.88);
+  --color-card:         rgba(250, 250, 248, 0.92);
+  --color-border:       rgba(17, 17, 17, 0.08);
+  --color-border-dark:  rgba(255, 255, 255, 0.08);
+  --color-cream:        #F5F5F3;
+  --color-charcoal:     #111111;
+  --color-gold:         #C8957A;
+
+  --font-display: "Cormorant Garamond", Georgia, serif;
+  --font-sans:    "Inter", system-ui, -apple-system, sans-serif;
+  --font-body:    "DM Sans", system-ui, -apple-system, sans-serif;
+  --font-heading: "Poppins", system-ui, -apple-system, sans-serif;
+
+  --radius-xs:   3px;
+  --radius-sm:   6px;
+  --radius-md:   10px;
+  --radius-lg:   12px;
+  --radius-pill: 9999px;
+
+  --animate-fade-in-up:  fade-in-up  0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+  --animate-fade-in:     fade-in     0.6s ease both;
+  --animate-slide-right: slide-right 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+  --animate-scale-in:    scale-in    0.6s cubic-bezier(0.22, 1, 0.36, 1) both;
+  --animate-float:       float       4s ease-in-out infinite;
+  --animate-pulse-soft:  pulse-soft  3s ease-in-out infinite;
+
+  --shadow-card:       0 25px 50px rgba(0,0,0,0.09), 0 10px 25px rgba(0,0,0,0.04);
+  --shadow-card-hover: 0 40px 80px rgba(0,0,0,0.13), 0 15px 35px rgba(0,0,0,0.06);
+  --shadow-card-lg:    0 30px 70px rgba(0,0,0,0.09), 0 10px 25px rgba(0,0,0,0.04);
+}
+
+@keyframes fade-in-up {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes slide-right {
+  from { opacity: 0; transform: translateX(-24px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+@keyframes scale-in {
+  from { opacity: 0; transform: scale(0.95); }
+  to   { opacity: 1; transform: scale(1); }
+}
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-10px); }
+}
+@keyframes pulse-soft {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.5; }
+}
+
+@variant dark (&:where(.dark, .dark *));
+
+/* ═══════════════════════════════════════════════════════════
+   DARK MODE — Override CSS custom properties.
+   Because bg-canvas / bg-card / hover:bg-canvas-warm all
+   resolve from these variables, every Tailwind utility
+   automatically gets the dark value — including hover states.
+═══════════════════════════════════════════════════════════ */
+.dark {
+  /* Surface backgrounds — RGBA so texture bleeds through */
+  --color-canvas:       rgba(15, 18, 16, 0.90);
+  --color-canvas-warm:  rgba(50, 50, 50, 0.96);
+  --color-canvas-green: rgba(24, 32, 25, 0.90);
+  --color-card:         rgba(58, 58, 58, 0.97);
+
+  /* Text */
+  --color-body:       rgba(210, 225, 213, 0.68);
+  --color-body-light: rgba(210, 225, 213, 0.44);
+  --color-muted:      rgba(210, 225, 213, 0.30);
+
+  /* Borders */
+  --color-border: rgba(255, 255, 255, 0.09);
+
+  /* Shadows — deeper in dark */
+  --shadow-card:       0 4px 24px rgba(0,0,0,0.45), 0 1px 6px rgba(0,0,0,0.28);
+  --shadow-card-hover: 0 8px 48px rgba(0,0,0,0.55), 0 4px 12px rgba(0,0,0,0.32);
+  --shadow-card-lg:    0 6px 36px rgba(0,0,0,0.48), 0 2px 8px rgba(0,0,0,0.28);
+}
+/* NOTE: --color-ink stays #111111 so bg-ink CTA sections remain dark. */
+
+/* ═══════════════════════════════════════════════════════════
+   BASE
+═══════════════════════════════════════════════════════════ */
+html {
+  font-family: var(--font-sans);
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ── Body: texture lives here so RGBA sections let it show through ── */
+body {
+  margin: 0;
+  width: 100%;
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+  -webkit-tap-highlight-color: transparent;
+
+  /* Solid base colour */
+  background-color: #F5F5F3;
+  /* Soothing botanical texture at low opacity */
+  background-image: url('/images/soothing_bg.png');
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  transition: background-color 0.4s ease;
+}
+
+/* Dark mode body — keeps texture but darkens + shifts hue */
+.dark body {
+  background-color: #0F1210;
+  /* Use CSS filter on body to shift the texture colour */
+  background-image: url('/images/soothing_bg.png');
+}
+
+/* Pseudo-element used only to apply filter to the texture in dark mode
+   without affecting the foreground elements */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background-image: inherit;
+  background-size: inherit;
+  background-attachment: inherit;
+  background-position: inherit;
+  background-repeat: inherit;
+  background-color: transparent;
+  opacity: 0;          /* hidden by default – body already has it */
+  pointer-events: none;
+}
+
+/* ── Typography ── */
+p, li, details div, label, .text-body {
+  font-family: var(--font-body) !important;
+}
+.font-body {
+  font-family: var(--font-body) !important;
+}
+.font-heading {
+  font-family: var(--font-heading) !important;
+}
+h1, h2, h3, h4, h5, h6, .font-sans, button, a {
+  font-family: var(--font-sans);
+}
+.font-display, [class*="font-display"] {
+  font-family: var(--font-display) !important;
+}
+
+h1, h2, h3, h4, h5, h6, .text-3xl, .text-4xl, .text-5xl, .text-6xl, .text-7xl {
+  text-wrap: balance;
+  letter-spacing: -0.035em !important;
+}
+/* Extra tight for large Inter headings — letters nearly touch */
+h1, .text-5xl, .text-6xl, .text-7xl, .text-\\[4\\.7rem\\] {
+  letter-spacing: -0.08em !important;
+}
+p { text-wrap: pretty; }
+
+/* ═══════════════════════════════════════════════════════════
+   DARK MODE TEXT READABILITY
+   Applied specifically so they don't bleed into white-bg areas.
+═══════════════════════════════════════════════════════════ */
+
+/* Headings on dark backgrounds */
+.dark h1, .dark h2, .dark h3, .dark h4, .dark h5, .dark h6 {
+  color: #DFE8E0;
+}
+/* Body text on dark backgrounds */
+.dark p {
+  color: rgba(210, 225, 213, 0.72);
+}
+.dark li {
+  color: rgba(210, 225, 213, 0.70);
+}
+.dark label {
+  color: rgba(210, 225, 213, 0.72);
+}
+
+/* text-* utility overrides for dark mode */
+.dark .text-ink  { color: #DFE8E0; }
+.dark .text-body { color: rgba(210, 225, 213, 0.68); }
+.dark .text-secondary { color: #D4A08A; }
+.dark .text-primary   { color: #8BBE92; }
+
+/* ── CRITICAL: undo colour inversion for light-background elements ── */
+/* White-bg buttons/anchors (e.g. "Book Discovery Call") MUST keep dark text */
+.dark .bg-white,
+.dark .bg-white *,
+.dark a.bg-white,
+.dark a.bg-white *,
+.dark button.bg-white,
+.dark button.bg-white *,
+.dark .bg-zinc-100,
+.dark .bg-zinc-100 *,
+.dark .bg-zinc-50,
+.dark .bg-zinc-50 * {
+  color: #111111 !important;
+}
+/* Also fix hover:bg-zinc-100 — when it becomes zinc-100 on hover keep dark text */
+.dark a:hover.hover\:bg-zinc-100,
+.dark button:hover.hover\:bg-zinc-100 {
+  color: #111111 !important;
+}
+
+/* Dark inputs */
+.dark input,
+.dark textarea,
+.dark select {
+  background-color: rgba(22, 27, 23, 0.95);
+  color: #DFE8E0;
+  border-color: rgba(255, 255, 255, 0.10);
+}
+.dark input::placeholder,
+.dark textarea::placeholder {
+  color: rgba(210, 225, 213, 0.32);
+}
+
+/* Dark blockquote */
+.dark blockquote {
+  border-color: #C8957A;
+  background-color: rgba(27, 32, 28, 0.95);
+  color: #DFE8E0;
+}
+
+/* Dark details/FAQ */
+.dark details summary   { color: #DFE8E0; }
+.dark details div       { color: rgba(210, 225, 213, 0.72); }
+/* FAQ +/- knob */
+.dark details summary span.rounded-full,
+.dark details summary span.rounded-sm {
+  background-color: rgba(37, 45, 38, 0.95);
+  color: #DFE8E0;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   FAQ ACCORDION ANIMATIONS — Smooth & Jitter-Free
+═══════════════════════════════════════════════════════════ */
+/* FAQ questions use Poppins, everything else uses DM Sans */
+.faq-stagger details summary span:first-child {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+.faq-stagger details summary {
+  font-family: var(--font-heading);
+}
+
+/* Email and contact text use DM Sans */
+.faq-stagger .text-body,
+.faq-stagger .text-xs,
+.faq-stagger .text-sm,
+.faq-stagger .text-base {
+  font-family: var(--font-body) !important;
+}
+/* Content reveal — only opacity + transform (GPU accelerated) */
+details summary ~ div {
+  will-change: transform, opacity;
+}
+details[open] summary ~ div {
+  animation: faq-reveal 0.35s cubic-bezier(0.33, 1, 0.68, 1) both;
+}
+@keyframes faq-reveal {
+  from { opacity: 0; transform: translateY(-6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Details card — smooth hover lift */
+details {
+  transition: transform 0.4s cubic-bezier(0.33, 1, 0.68, 1),
+              box-shadow 0.4s cubic-bezier(0.33, 1, 0.68, 1),
+              border-color 0.3s ease;
+  will-change: transform;
+}
+details:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+}
+
+/* Open details — border accent */
+details[open] {
+  border-color: var(--color-primary) !important;
+  box-shadow: 0 4px 16px rgba(107,143,113,0.08);
+}
+.dark details[open] {
+  border-color: rgba(107,143,113,0.35) !important;
+  box-shadow: 0 4px 20px rgba(107,143,113,0.12);
+}
+
+/* Summary hover — smooth color transition */
+details summary {
+  transition: color 0.25s ease;
+}
+details summary:hover {
+  color: var(--color-primary) !important;
+}
+.dark details summary:hover {
+  color: #8BBE92 !important;
+}
+
+/* + icon — smooth spin + glow on open */
+details summary span.rounded-full {
+  will-change: transform;
+  transition: transform 0.4s cubic-bezier(0.33, 1, 0.68, 1),
+              background-color 0.3s ease,
+              color 0.3s ease,
+              box-shadow 0.4s ease;
+}
+details[open] summary span.rounded-full {
+  background-color: var(--color-primary);
+  color: white;
+  box-shadow: 0 2px 8px rgba(107,143,113,0.35);
+}
+.dark details[open] summary span.rounded-full {
+  background-color: var(--color-primary);
+  color: #111111;
+  box-shadow: 0 2px 10px rgba(107,143,113,0.45);
+}
+
+/* Staggered entrance for FAQ items */
+.faq-stagger > details:nth-child(1) { animation-delay: 0s; }
+.faq-stagger > details:nth-child(2) { animation-delay: 0.08s; }
+.faq-stagger > details:nth-child(3) { animation-delay: 0.16s; }
+.faq-stagger > details:nth-child(4) { animation-delay: 0.24s; }
+.faq-stagger > details {
+  will-change: transform, opacity;
+  animation: faq-item-enter 0.7s cubic-bezier(0.33, 1, 0.68, 1) both;
+}
+@keyframes faq-item-enter {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* "canvas-warm" numbered badge on about page */
+.dark .bg-canvas-warm.text-ink { color: #DFE8E0 !important; }
+/* All canvas-warm badge chips */
+.dark .bg-canvas-warm { color: rgba(210,225,213,0.80); }
+
+/* ── Booking wizard ── */
+.dark .step-label     { color: rgba(210,225,213,0.55) !important; }
+.dark .step-circle    { color: rgba(210,225,213,0.55) !important; border-color: rgba(255,255,255,0.12) !important; }
+.dark .step-item.active .step-circle,
+.dark .step-item.completed .step-circle {
+  color: #111111 !important;
+  background-color: var(--color-primary) !important;
+  border-color: var(--color-primary) !important;
+}
+.dark .step-item.active .step-label    { color: #DFE8E0 !important; font-weight: 700 !important; }
+.dark .step-item.completed .step-label { color: rgba(210,225,213,0.65) !important; }
+
+/* Calendar */
+.dark .day-btn              { color: #DFE8E0 !important; }
+.dark .day-btn:hover:not(:disabled) { background-color: rgba(37,45,38,0.95) !important; color: #DFE8E0 !important; }
+.dark .day-btn:disabled     { opacity: 0.20 !important; }
+
+/* Time slots */
+.dark .time-slot            { color: #DFE8E0 !important; border-color: rgba(255,255,255,0.10) !important; }
+.dark .time-slot:hover      { background-color: rgba(37,45,38,0.95) !important; color: #DFE8E0 !important; border-color: rgba(255,255,255,0.20) !important; }
+.dark #time-slots-container p { color: rgba(210,225,213,0.60) !important; }
+
+/* Form inputs in booking */
+.dark .booking-step input,
+.dark .booking-step textarea {
+  background-color: rgba(22, 27, 23, 0.95) !important;
+  color: #DFE8E0 !important;
+  border-color: rgba(255,255,255,0.10) !important;
+}
+.dark .booking-step input::placeholder,
+.dark .booking-step textarea::placeholder { color: rgba(210,225,213,0.30) !important; }
+
+/* Back buttons */
+.dark #btn-back-to-step1,
+.dark #btn-back-to-step2 {
+  background-color: rgba(26, 31, 27, 0.95) !important;
+  border-color: rgba(255,255,255,0.10) !important;
+  color: #DFE8E0 !important;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   FOCUS / SELECTION
+═══════════════════════════════════════════════════════════ */
+*:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 3px;
+  border-radius: var(--radius-xs);
+}
+::selection {
+  background-color: color-mix(in srgb, var(--color-primary) 25%, transparent);
+}
+.dark ::selection {
+  background-color: color-mix(in srgb, var(--color-primary) 35%, transparent);
+  color: #DFE8E0;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   SCROLL REVEAL ANIMATIONS
+═══════════════════════════════════════════════════════════ */
+.reveal {
+  opacity: 0; transform: translateY(24px);
+  transition: opacity 1.2s cubic-bezier(0.16,1,0.3,1), transform 1.2s cubic-bezier(0.16,1,0.3,1);
+}
+.reveal.revealed { opacity: 1; transform: translateY(0); }
+
+.reveal-left {
+  opacity: 0; transform: translateX(-24px);
+  transition: opacity 1.2s cubic-bezier(0.16,1,0.3,1), transform 1.2s cubic-bezier(0.16,1,0.3,1);
+}
+.reveal-left.revealed { opacity: 1; transform: translateX(0); }
+
+.reveal-right {
+  opacity: 0; transform: translateX(24px);
+  transition: opacity 1.2s cubic-bezier(0.16,1,0.3,1), transform 1.2s cubic-bezier(0.16,1,0.3,1);
+}
+.reveal-right.revealed { opacity: 1; transform: translateX(0); }
+
+.reveal-scale {
+  opacity: 0; transform: scale(0.95) translateY(12px);
+  transition: opacity 1.2s cubic-bezier(0.16,1,0.3,1), transform 1.2s cubic-bezier(0.16,1,0.3,1);
+}
+.reveal-scale.revealed { opacity: 1; transform: scale(1) translateY(0); }
+
+/* ═══════════════════════════════════════════════════════════
+   STAGGER CHILDREN
+═══════════════════════════════════════════════════════════ */
+.stagger-children > * {
+  opacity: 0; transform: translateY(24px);
+  transition: opacity 0.8s cubic-bezier(0.16,1,0.3,1), transform 0.8s cubic-bezier(0.16,1,0.3,1);
+}
+.stagger-children.revealed > * { opacity: 1; transform: translateY(0); }
+.stagger-children.revealed > *:nth-child(1) { transition-delay: 0.08s; }
+.stagger-children.revealed > *:nth-child(2) { transition-delay: 0.16s; }
+.stagger-children.revealed > *:nth-child(3) { transition-delay: 0.24s; }
+.stagger-children.revealed > *:nth-child(4) { transition-delay: 0.32s; }
+.stagger-children.revealed > *:nth-child(5) { transition-delay: 0.40s; }
+.stagger-children.revealed > *:nth-child(6) { transition-delay: 0.48s; }
+
+/* ═══════════════════════════════════════════════════════════
+   CARD UTILITIES
+═══════════════════════════════════════════════════════════ */
+.card-lift {
+  box-shadow: var(--shadow-card);
+  transition: transform 0.6s cubic-bezier(0.16,1,0.3,1), box-shadow 0.6s cubic-bezier(0.16,1,0.3,1);
+}
+.card-lift:hover { transform: translateY(-6px) scale(1.008); box-shadow: var(--shadow-card-hover); }
+
+.glass {
+  background: rgba(255,255,255,0.06);
+  backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255,255,255,0.08);
+}
+.glass-light {
+  background: rgba(255,255,255,0.70);
+  backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255,255,255,0.50);
+}
+
+/* Decorative divider */
+.premium-divider {
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--color-border), transparent);
+  position: relative;
+}
+.premium-divider::after {
+  content:''; position:absolute; left:50%; top:50%; transform:translate(-50%,-50%);
+  width:4px; height:4px; border-radius:50%; background:var(--color-primary);
+}
+
+/* Smooth underline animation */
+.premium-link { position:relative; text-decoration:none; }
+.premium-link::after {
+  content:''; position:absolute; bottom:-2px; left:0; width:0; height:1px;
+  background:currentColor; transition:width 0.4s cubic-bezier(0.22,1,0.36,1);
+}
+.premium-link:hover::after { width:100%; }
+
+/* ═══════════════════════════════════════════════════════════
+   GLOW UTILITIES
+═══════════════════════════════════════════════════════════ */
+.bg-primary {
+  box-shadow: 0 4px 14px -2px rgba(107,143,113,0.28), 0 0 1px rgba(107,143,113,0.5);
+  transition: all 0.3s cubic-bezier(0.22,1,0.36,1);
+}
+.bg-primary:hover { box-shadow: 0 6px 20px rgba(107,143,113,0.5), 0 0 3px rgba(107,143,113,0.65); }
+.bg-secondary {
+  box-shadow: 0 4px 14px -2px rgba(200,149,122,0.25), 0 0 1px rgba(200,149,122,0.5);
+  transition: all 0.3s cubic-bezier(0.22,1,0.36,1);
+}
+.bg-secondary:hover { box-shadow: 0 6px 20px rgba(200,149,122,0.45), 0 0 3px rgba(200,149,122,0.6); }
+
+/* Hero card shadow */
+.hero-image-card {
+  box-shadow:
+    0 0 0 1px rgba(107,143,113,0.08),
+    0 8px 24px rgba(0,0,0,0.08),
+    0 32px 64px rgba(0,0,0,0.12),
+    0 64px 120px rgba(0,0,0,0.08);
+  transition: box-shadow 0.6s cubic-bezier(0.16,1,0.3,1), transform 0.6s cubic-bezier(0.16,1,0.3,1);
+}
+.hero-image-card:hover {
+  box-shadow:
+    0 0 0 1px rgba(107,143,113,0.12),
+    0 12px 32px rgba(0,0,0,0.10),
+    0 48px 96px rgba(0,0,0,0.16),
+    0 80px 140px rgba(0,0,0,0.10);
+  transform: translateY(-4px);
+}
+
+/* Hero glow orbs */
+.hero-glow-green {
+  position:absolute; width:420px; height:420px; border-radius:50%;
+  background:radial-gradient(circle, rgba(107,143,113,0.13) 0%, transparent 70%);
+  filter:blur(60px); pointer-events:none; animation:float 6s ease-in-out infinite;
+}
+.hero-glow-orange {
+  position:absolute; width:320px; height:320px; border-radius:50%;
+  background:radial-gradient(circle, rgba(200,149,122,0.10) 0%, transparent 70%);
+  filter:blur(50px); pointer-events:none; animation:float 8s ease-in-out infinite reverse;
+}
+.dark .hero-glow-green {
+  background:radial-gradient(circle, rgba(107,143,113,0.20) 0%, transparent 70%);
+}
+.dark .hero-glow-orange {
+  background:radial-gradient(circle, rgba(200,149,122,0.16) 0%, transparent 70%);
+}
+
+/* img zoom */
+.img-zoom { overflow:hidden; }
+.img-zoom img { transition:transform 1s cubic-bezier(0.16,1,0.3,1); }
+.img-zoom:hover img { transform:scale(1.05); }
+
+/* 3D icon containers — blurred shadow depth */
+.icon-3d {
+  box-shadow: 0 8px 30px rgba(0,0,0,0.12), 0 4px 12px rgba(0,0,0,0.08);
+  background: linear-gradient(135deg, rgba(255,255,255,0.8), rgba(255,255,255,0.4));
+  transition: all 0.5s cubic-bezier(0.22,1,0.36,1);
+}
+.icon-3d:hover {
+  box-shadow: 0 12px 40px rgba(0,0,0,0.18), 0 6px 16px rgba(0,0,0,0.12);
+}
+.dark .icon-3d {
+  box-shadow: 0 8px 30px rgba(0,0,0,0.35), 0 4px 12px rgba(0,0,0,0.25);
+  background: linear-gradient(135deg, rgba(60,65,62,0.9), rgba(45,50,47,0.85));
+}
+.dark .icon-3d:hover {
+  box-shadow: 0 12px 40px rgba(0,0,0,0.45), 0 6px 16px rgba(0,0,0,0.30);
+}

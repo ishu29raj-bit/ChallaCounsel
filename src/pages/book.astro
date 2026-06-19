@@ -1,0 +1,83 @@
+---
+import Layout from '../layouts/Layout.astro';
+import BookingWizard from '../components/BookingWizard.astro';
+---
+
+<Layout 
+  title="Schedule an Appointment | Challa's Counsel" 
+  description="Book a therapy session with our HIPAA-compliant scheduling calendar."
+>
+  <!-- Hero / Header block -->
+  <section class="bg-canvas pt-32 pb-12">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="reveal">
+        <span class="text-[11px] font-semibold uppercase tracking-[0.2em] text-primary block mb-3">Scheduling Portal</span>
+        <h1 class="font-sans font-bold text-4xl md:text-5xl text-ink leading-tight tracking-tight">
+          Begin your <span class="font-display italic font-normal text-secondary">healing journey</span>
+        </h1>
+      </div>
+    </div>
+  </section>
+
+  <!-- Editorial 12-column Booking Layout -->
+  <section class="pb-28 bg-canvas">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+        
+        <!-- Left Side: Sticky Clinic Policy & Reassurance (5 columns) -->
+        <div class="lg:col-span-5 space-y-8 lg:sticky lg:top-28 reveal-left">
+          
+          <!-- Care Policy Info Card -->
+          <div class="bg-card rounded-lg p-8 border border-border/50 shadow-card space-y-6">
+            <h3 class="font-sans font-bold text-lg text-ink uppercase tracking-wider">Practice Disclosures</h3>
+            
+            <div class="space-y-4 divide-y divide-border/60">
+              <!-- Item 1 -->
+              <div class="pt-0 space-y-1">
+                <span class="text-[10px] font-bold uppercase tracking-wider text-secondary">Session Rates</span>
+                <p class="text-sm text-body leading-relaxed">
+                  Individual sessions are billed at $180 (50 min). Couples counseling sessions are billed at $220 (75 min).
+                </p>
+              </div>
+
+              <!-- Item 2 -->
+              <div class="pt-4 space-y-1">
+                <span class="text-[10px] font-bold uppercase tracking-wider text-primary">Insurance Navigation</span>
+                <p class="text-sm text-body leading-relaxed">
+                  We operate as an Out-of-Network provider. A monthly Superbill will be generated for your insurance reimbursement.
+                </p>
+              </div>
+
+              <!-- Item 3 -->
+              <div class="pt-4 space-y-1">
+                <span class="text-[10px] font-bold uppercase tracking-wider text-secondary">Cancellation Policy</span>
+                <p class="text-sm text-body leading-relaxed">
+                  To avoid cancellation charges, please reschedule or cancel your session at least 24 hours prior to the slot.
+                </p>
+              </div>
+
+              <!-- Item 4 -->
+              <div class="pt-4 space-y-1">
+                <span class="text-[10px] font-bold uppercase tracking-wider text-primary">HIPAA Protection</span>
+                <p class="text-sm text-body leading-relaxed">
+                  All digital bookings, intakes, notes, and telehealth rooms comply strictly with federal HIPAA security rules.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Contact block -->
+          <div class="px-4 text-xs text-body space-y-2">
+            <p>Need custom timing or priority scheduling? Contact the office directly at <a href="mailto:hello@challascounsel.com" class="text-secondary hover:underline font-semibold">hello@challascounsel.com</a>.</p>
+          </div>
+        </div>
+
+        <!-- Right Side: Interactive Wizard in Extra Depth Card (7 columns) -->
+        <div class="lg:col-span-7 reveal-right">
+          <BookingWizard />
+        </div>
+
+      </div>
+    </div>
+  </section>
+</Layout>

@@ -1,0 +1,507 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout 
+  title="Challa's Counsel | Professional Counseling Services" 
+  description="Challa's Counsel offers professional counselling services including individual, couples, career, and family counselling to help you heal and grow."
+>
+  <!-- Hero Section -->
+  <section class="pt-32 pb-20 md:pt-40 md:pb-32 bg-canvas overflow-hidden relative">
+    <!-- Ambient hero glow orbs -->
+    <div class="hero-glow-green" style="top: -80px; left: -60px; opacity: 0.9;"></div>
+    <div class="hero-glow-orange" style="bottom: 60px; right: 10%; opacity: 0.85;"></div>
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+        <!-- Left Side: Editorial Copy -->
+        <div class="lg:col-span-6 space-y-8 reveal-left">
+          <div class="inline-flex items-center gap-2">
+            <span class="w-1.5 h-1.5 rounded-full bg-secondary" style="box-shadow: 0 0 8px rgba(200,149,122,0.7);"></span>
+            <span class="text-[11px] font-semibold uppercase tracking-[0.2em] text-body">Private Therapy Practice</span>
+          </div>
+          
+          <h1 class="font-sans font-bold text-5xl md:text-6xl lg:text-[4.7rem] text-ink leading-[1.05] tracking-[-0.03em] max-w-xl">
+            You don't have to navigate <span class="font-display italic font-normal text-secondary">life alone</span>.
+          </h1>
+          
+          <p class="text-base md:text-lg text-body max-w-lg leading-relaxed">
+            Compassionate, evidence-based therapy designed to help you navigate anxiety, burnout, relationships, and life's transitions with clarity, warmth, and resilience.
+          </p>
+          
+          <div class="flex flex-col sm:flex-row gap-4 pt-2">
+            <a 
+              href="/book" 
+              class="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-sm bg-primary hover:bg-primary-dark text-ink font-semibold text-sm transition-all duration-300 hover:shadow-lg hover:shadow-primary/30 active:scale-[0.98]"
+              style="box-shadow: 0 4px 20px rgba(107,143,113,0.30), 0 0 0 1px rgba(107,143,113,0.15);"
+            >
+              Book a Consultation
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="w-4 h-4"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" /></svg>
+            </a>
+            <a 
+              href="/about" 
+              class="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-sm border border-border bg-card text-ink hover:bg-canvas-warm font-semibold text-sm transition-all duration-300 shadow-sm"
+            >
+              Learn More
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="w-4 h-4"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" /></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Right Side: Editorial Image Container -->
+        <div class="lg:col-span-6 reveal-right">
+          <div class="hero-image-card rounded-lg bg-canvas-warm">
+            <div class="relative rounded-lg overflow-hidden aspect-[4/3] md:aspect-[5/4] lg:aspect-[4/3] group">
+              <img 
+                src="/images/dr_niharika_portrait.png" 
+                alt="Portrait of Mr. Challa" 
+                class="w-full h-full object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-105"
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-black/10 via-transparent to-transparent"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works Section -->
+  <section class="py-24 md:py-36 bg-canvas border-t border-border/40">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="text-center mb-16 md:mb-24 space-y-4 reveal">
+        <span class="text-[11px] font-semibold uppercase tracking-[0.2em] text-primary">How we work</span>
+        <h2 class="font-sans font-bold text-4xl md:text-5xl text-ink leading-tight tracking-tight">
+          We keep details <span class="font-display italic font-normal text-secondary">strong and simple</span>
+        </h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-10 lg:gap-12 stagger-children">
+        <!-- Step 1 Card -->
+        <div class="relative bg-card rounded-lg p-8 md:p-10 shadow-card hover:shadow-card-hover transition-all duration-500 flex flex-col items-center text-center group">
+          <!-- Floating Number Badge -->
+          <div class="absolute -top-5 left-8 w-10 h-10 rounded-sm bg-ink text-white flex items-center justify-center font-sans font-bold text-sm shadow-md transition-transform duration-300 group-hover:-translate-y-1">
+            1
+          </div>
+          <!-- 3D Icon -->
+          <div class="my-6 w-24 h-24 flex items-center justify-center rounded-[28px] overflow-hidden icon-3d transition-all duration-500 group-hover:scale-110">
+            <img src="/images/3d_connect.png" alt="Connect" class="w-full h-full object-cover" />
+          </div>
+          <h3 class="font-sans font-bold text-xl text-ink mb-3">Connect</h3>
+          <p class="text-sm text-body leading-relaxed max-w-xs">
+            Start with a quiet, no-obligation conversation. We align on your goals, concerns, and confirm our mutual therapeutic fit.
+          </p>
+        </div>
+
+        <!-- Step 2 Card -->
+        <div class="relative bg-card rounded-lg p-8 md:p-10 shadow-card hover:shadow-card-hover transition-all duration-500 flex flex-col items-center text-center group">
+          <!-- Floating Number Badge -->
+          <div class="absolute -top-5 left-8 w-10 h-10 rounded-sm bg-ink text-white flex items-center justify-center font-sans font-bold text-sm shadow-md transition-transform duration-300 group-hover:-translate-y-1">
+            2
+          </div>
+          <!-- 3D Icon -->
+          <div class="my-6 w-24 h-24 flex items-center justify-center rounded-[28px] overflow-hidden icon-3d transition-all duration-500 group-hover:scale-110">
+            <img src="/images/3d_reflect.png" alt="Reflect" class="w-full h-full object-cover" />
+          </div>
+          <h3 class="font-sans font-bold text-xl text-ink mb-3">Reflect</h3>
+          <p class="text-sm text-body leading-relaxed max-w-xs">
+            Unpack patterns and emotional blocks. We use somatic insights and modern clinical models to build self-awareness and core safety.
+          </p>
+        </div>
+
+        <!-- Step 3 Card -->
+        <div class="relative bg-card rounded-lg p-8 md:p-10 shadow-card hover:shadow-card-hover transition-all duration-500 flex flex-col items-center text-center group">
+          <!-- Floating Number Badge -->
+          <div class="absolute -top-5 left-8 w-10 h-10 rounded-sm bg-ink text-white flex items-center justify-center font-sans font-bold text-sm shadow-md transition-transform duration-300 group-hover:-translate-y-1">
+            3
+          </div>
+          <!-- 3D Icon -->
+          <div class="my-6 w-24 h-24 flex items-center justify-center rounded-[28px] overflow-hidden icon-3d transition-all duration-500 group-hover:scale-110">
+            <img src="/images/3d_grow.png" alt="Grow" class="w-full h-full object-cover" />
+          </div>
+          <h3 class="font-sans font-bold text-xl text-ink mb-3">Grow</h3>
+          <p class="text-sm text-body leading-relaxed max-w-xs">
+            Integrate healthy boundaries and sustainable emotional habits to step confidently into the next chapter of your life.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Therapy Section -->
+  <section class="py-24 md:py-36 bg-canvas border-t border-border/40 overflow-hidden">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+        <!-- Left Side: Benefit Cards Stack -->
+        <div class="lg:col-span-6 space-y-10 reveal-left">
+          <div class="space-y-4">
+            <span class="text-[11px] font-semibold uppercase tracking-[0.2em] text-primary">Why therapy</span>
+            <h2 class="font-sans font-bold text-4xl md:text-5xl text-ink leading-tight tracking-tight">
+              A thoughtful path to <span class="font-display italic font-normal text-secondary">lasting clarity</span>
+            </h2>
+          </div>
+
+          <div class="space-y-6">
+            <!-- Benefit 1 Card -->
+            <div class="bg-card rounded-lg p-6 md:p-8 shadow-card flex gap-6 hover:shadow-card-hover transition-all duration-300 group">
+              <div class="w-14 h-14 rounded-xl border border-secondary/25 bg-gradient-to-br from-secondary/10 to-secondary/5 flex items-center justify-center shrink-0 shadow-sm transition-all duration-500 group-hover:bg-secondary group-hover:border-secondary group-hover:scale-110 group-hover:shadow-lg group-hover:shadow-secondary/20">
+                <span class="font-display italic font-bold text-xl text-secondary group-hover:text-white transition-colors duration-300">A</span>
+              </div>
+              <div class="space-y-2">
+                <h3 class="font-sans font-bold text-lg text-ink">Emotional Clarity</h3>
+                <p class="text-sm text-body leading-relaxed">
+                  Develop nuanced self-awareness of recurring emotional patterns, empowering you to make conscious choices aligned with your deepest values.
+                </p>
+              </div>
+            </div>
+
+            <!-- Benefit 2 Card -->
+            <div class="bg-card rounded-lg p-6 md:p-8 shadow-card flex gap-6 hover:shadow-card-hover transition-all duration-300 group">
+              <div class="w-14 h-14 rounded-xl border border-primary/25 bg-gradient-to-br from-primary/10 to-primary/5 flex items-center justify-center shrink-0 shadow-sm transition-all duration-500 group-hover:bg-primary group-hover:border-primary group-hover:scale-110 group-hover:shadow-lg group-hover:shadow-primary/20">
+                <span class="font-display italic font-bold text-xl text-primary group-hover:text-ink transition-colors duration-300">B</span>
+              </div>
+              <div class="space-y-2">
+                <h3 class="font-sans font-bold text-lg text-ink">Stronger Boundaries</h3>
+                <p class="text-sm text-body leading-relaxed">
+                  Cultivate enduring relational frameworks that safeguard your time, emotional energy, and well-being — without guilt or depletion.
+                </p>
+              </div>
+            </div>
+
+            <!-- Benefit 3 Card -->
+            <div class="bg-card rounded-lg p-6 md:p-8 shadow-card flex gap-6 hover:shadow-card-hover transition-all duration-300 group">
+              <div class="w-14 h-14 rounded-xl border border-secondary/25 bg-gradient-to-br from-secondary/10 to-secondary/5 flex items-center justify-center shrink-0 shadow-sm transition-all duration-500 group-hover:bg-secondary group-hover:border-secondary group-hover:scale-110 group-hover:shadow-lg group-hover:shadow-secondary/20">
+                <span class="font-display italic font-bold text-xl text-secondary group-hover:text-white transition-colors duration-300">C</span>
+              </div>
+              <div class="space-y-2">
+                <h3 class="font-sans font-bold text-lg text-ink">Greater Calm</h3>
+                <p class="text-sm text-body leading-relaxed">
+                  Master evidence-based somatic regulation techniques to restore nervous-system equilibrium and sustainably reduce stress and anxiety.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Side: Overlapping Editorial Images -->
+        <div class="lg:col-span-6 relative aspect-[4/5] md:aspect-[1/1] lg:aspect-[4/5] reveal-right">
+          <!-- Main Image -->
+          <div class="absolute top-0 left-0 w-3/4 h-3/4 z-10">
+            <div class="shadow-card rounded-lg bg-canvas-warm">
+              <div class="rounded-lg overflow-hidden aspect-square group">
+                <img 
+                  src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=800&auto=format&fit=crop&q=80" 
+                  alt="Quiet tea mug and notebook in warm morning sunshine representing emotional reflection" 
+                  class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                />
+              </div>
+            </div>
+          </div>
+          <!-- Overlapping Secondary Image -->
+          <div class="absolute bottom-0 right-0 w-2/3 h-2/3 z-20">
+            <div class="rounded-lg bg-canvas-warm" style="box-shadow: 0 25px 60px rgba(0,0,0,0.25), 0 10px 30px rgba(0,0,0,0.15);">
+              <div class="rounded-lg overflow-hidden aspect-square group">
+                <img 
+                  src="https://images.unsplash.com/photo-1618220179428-22790b461013?w=700&auto=format&fit=crop&q=80" 
+                  alt="Warm cozy therapy space with orange armchair, green plants, and natural light" 
+                  class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section (Testimonial & Philosophy Layout) -->
+  <section class="py-24 md:py-36 bg-canvas border-t border-border/40">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+        <!-- Left: Philosophy Quote -->
+        <div class="lg:col-span-7 space-y-8 reveal-left">
+          <span class="text-[11px] font-semibold uppercase tracking-[0.2em] text-primary">Philosophy & Approach</span>
+          
+          <div class="space-y-6">
+            <p class="font-display italic text-3xl md:text-4xl text-ink leading-relaxed">
+              "Therapy is not about fixing what is broken. It is a collaborative space to rediscover your safety, remember your boundaries, and live aligned with your truth."
+            </p>
+            
+            <div class="premium-divider !w-24"></div>
+            
+            <p class="text-base text-body leading-relaxed max-w-xl">
+              I believe emotional healing happens when mind and body work in harmony. My private practice integrates clinical psychodynamic therapy, nervous-system regulation, and evidence-based stress strategies to support you through burnout, anxiety, and relationship changes.
+            </p>
+          </div>
+
+          <!-- Credentials beneath the introduction -->
+          <div class="pt-6 border-t border-border/60">
+            <h4 class="text-xs font-semibold uppercase tracking-wider text-ink/40 mb-4">Credentials & Education</h4>
+            <div class="flex flex-wrap gap-3">
+              <span class="px-4 py-2 rounded-sm bg-card border border-border/60 text-xs font-semibold text-ink">Ph.D. Clinical Psychology</span>
+              <span class="px-4 py-2 rounded-sm bg-card border border-border/60 text-xs font-semibold text-ink">Licensed Psychotherapist</span>
+              <span class="px-4 py-2 rounded-sm bg-card border border-border/60 text-xs font-semibold text-ink">Burnout & Anxiety Specialist</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Portrait -->
+        <div class="lg:col-span-5 reveal-right">
+          <div class="shadow-card rounded-lg bg-canvas-warm">
+            <div class="rounded-lg overflow-hidden aspect-[4/5] group relative">
+              <img 
+                src="/images/dr_niharika_portrait.png" 
+                alt="Portrait of Mr. Challa" 
+                class="w-full h-full object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-105"
+              />
+              <!-- Ambient glow behind name plate -->
+              <div class="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent pointer-events-none"></div>
+              <div class="absolute bottom-5 left-5 right-5 p-5 rounded-md bg-white/82 dark:bg-[#1C211D]/94 backdrop-blur-md border border-white/50 dark:border-white/[0.08] shadow-xl">
+                <span class="font-display italic font-normal text-2xl md:text-3xl block text-ink dark:text-[#DFE8E0] tracking-[-0.02em] leading-tight">Mr. Challa</span>
+                <span class="text-xs text-body dark:text-[#D2E1D5]/70 mt-1 block font-medium tracking-wide">Founder · Lead Counselor</span>
+                <div class="mt-3 flex items-center gap-2">
+                  <span class="w-2 h-2 rounded-full bg-primary"></span>
+                  <span class="text-[10px] font-bold uppercase tracking-[0.15em] text-primary dark:text-[#8BBE92]">Accepting New Clients</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing Section (Services Packages) -->
+  <section class="py-24 md:py-36 bg-canvas border-t border-border/40">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="text-center mb-16 md:mb-24 space-y-4 reveal">
+        <span class="text-[11px] font-semibold uppercase tracking-[0.2em] text-primary">Services</span>
+        <h2 class="font-sans font-bold text-4xl md:text-5xl text-ink leading-tight tracking-tight">
+          Plan built for serious <span class="font-display italic font-normal text-secondary">personal growth</span>
+        </h2>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+        <!-- Left side: Vertical image stack -->
+        <div class="lg:col-span-5 space-y-6 reveal-left">
+          <div class="shadow-card rounded-lg bg-canvas-warm">
+            <div class="rounded-lg overflow-hidden aspect-[4/3]">
+              <img 
+                src="https://images.unsplash.com/photo-1545205597-3d9d02c29597?w=700&auto=format&fit=crop&q=80" 
+                alt="Therapeutic tea cup representing online therapy care" 
+                class="w-full h-full object-cover"
+              />
+            </div>
+          </div>
+          <div class="shadow-card rounded-lg bg-canvas-warm">
+            <div class="rounded-lg overflow-hidden aspect-[4/3]">
+              <img 
+                src="https://images.unsplash.com/photo-1576092768241-dec231879fc3?w=700&auto=format&fit=crop&q=80" 
+                alt="Calming home interior representing supportive space" 
+                class="w-full h-full object-cover"
+              />
+            </div>
+          </div>
+        </div>
+
+        <!-- Right side: Packages Card -->
+        <div class="lg:col-span-7 bg-card rounded-lg p-8 md:p-12 shadow-card border border-border/50 space-y-10 reveal-right">
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-[12px] bg-canvas-warm flex items-center justify-center text-secondary">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor" class="w-5 h-5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 0 1-1.043 3.296 3.745 3.745 0 0 1-3.296 1.043A3.745 3.745 0 0 1 12 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 0 1-3.296-1.043 3.745 3.745 0 0 1-1.043-3.296A3.745 3.745 0 0 1 3 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 0 1 1.043-3.296 3.746 3.746 0 0 1 3.296-1.043A3.746 3.746 0 0 1 12 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 0 1 3.296 1.043 3.746 3.746 0 0 1 1.043 3.296A3.745 3.745 0 0 1 21 12Z" /></svg>
+            </div>
+            <span class="font-sans font-bold text-lg text-ink uppercase tracking-wider">Practice Packages</span>
+          </div>
+
+          <div class="space-y-6 divide-y divide-border/60">
+            <!-- Service 1 -->
+            <div class="pt-0 space-y-3">
+              <div class="flex justify-between items-center">
+                <div>
+                  <span class="text-[9px] font-bold uppercase tracking-[0.2em] text-primary block mb-1">Individual Counselling</span>
+                  <h4 class="font-sans font-bold text-lg text-ink">One-on-One Sessions</h4>
+                </div>
+                <span class="text-sm font-semibold text-secondary">$180 <span class="text-xs text-body font-normal">/ session</span></span>
+              </div>
+              <ul class="text-xs text-body space-y-1.5">
+                <li class="flex items-center gap-2"><span class="w-1 h-1 rounded-full bg-secondary"></span> Session length: 50 minutes</li>
+                <li class="flex items-center gap-2"><span class="w-1 h-1 rounded-full bg-secondary"></span> Availability: In-Person or Secure Video</li>
+                <li class="flex items-center gap-2"><span class="w-1 h-1 rounded-full bg-secondary"></span> Focus: Anxiety, depression, and career counselling</li>
+              </ul>
+            </div>
+
+            <!-- Service 2 -->
+            <div class="pt-6 space-y-3">
+              <div class="flex justify-between items-center">
+                <div>
+                  <span class="text-[9px] font-bold uppercase tracking-[0.2em] text-primary block mb-1">Couples Therapy</span>
+                  <h4 class="font-sans font-bold text-lg text-ink">Joint Partner Sessions</h4>
+                </div>
+                <span class="text-sm font-semibold text-secondary">$220 <span class="text-xs text-body font-normal">/ session</span></span>
+              </div>
+              <ul class="text-xs text-body space-y-1.5">
+                <li class="flex items-center gap-2"><span class="w-1 h-1 rounded-full bg-secondary"></span> Session length: 75 minutes</li>
+                <li class="flex items-center gap-2"><span class="w-1 h-1 rounded-full bg-secondary"></span> Availability: In-Person sessions preferred</li>
+                <li class="flex items-center gap-2"><span class="w-1 h-1 rounded-full bg-secondary"></span> Focus: Intimacy, communication, and family counselling</li>
+              </ul>
+            </div>
+
+            <!-- Service 3 -->
+            <div class="pt-6 space-y-3">
+              <div class="flex justify-between items-center">
+                <div>
+                  <span class="text-[9px] font-bold uppercase tracking-[0.2em] text-primary block mb-1">Premarital Counselling</span>
+                  <h4 class="font-sans font-bold text-lg text-ink">Pre-marriage Alignment</h4>
+                </div>
+                <span class="text-sm font-semibold text-secondary">$180 <span class="text-xs text-body font-normal">/ session</span></span>
+              </div>
+              <ul class="text-xs text-body space-y-1.5">
+                <li class="flex items-center gap-2"><span class="w-1 h-1 rounded-full bg-secondary"></span> Session length: 50 minutes</li>
+                <li class="flex items-center gap-2"><span class="w-1 h-1 rounded-full bg-secondary"></span> Availability: HIPAA-secure telehealth or office</li>
+                <li class="flex items-center gap-2"><span class="w-1 h-1 rounded-full bg-secondary"></span> Focus: Future planning, goals, and values alignment</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="pt-6">
+            <a 
+              href="/book" 
+              class="w-full inline-flex items-center justify-center gap-2 px-8 py-4 rounded-sm bg-ink hover:bg-zinc-800 text-white font-semibold text-sm transition-all duration-300 shadow-md active:scale-[0.98]"
+            >
+              Start Your Service
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="w-4 h-4"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" /></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section (Exact structure replicated from references) -->
+  <section class="py-24 md:py-36 bg-canvas border-t border-border/40">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="text-center mb-16 md:mb-24 space-y-4 reveal">
+        <span class="text-[11px] font-semibold uppercase tracking-[0.2em] text-primary">FAQ</span>
+        <h2 class="font-sans font-bold text-4xl md:text-5xl text-ink leading-tight tracking-tight">
+          Frequently Asked <span class="font-display italic font-normal text-secondary">Questions</span>
+        </h2>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
+        <!-- Left Side: Container with Contact CTA & Accordions -->
+        <div class="bg-card rounded-lg p-8 md:p-10 shadow-card border border-border/50 space-y-8 reveal-left">
+          <!-- Top Contact Row -->
+          <div class="flex flex-col sm:flex-row justify-between sm:items-center gap-4 pb-6 border-b border-border/60">
+            <div>
+              <span class="text-xs text-body block mb-1">Email</span>
+              <span class="font-body font-bold text-ink text-base">hello@challascounsel.com</span>
+            </div>
+            <a 
+              href="mailto:hello@challascounsel.com" 
+              class="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-sm bg-ink text-white font-body font-semibold text-xs transition-all duration-300 hover:bg-zinc-800"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4"><path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75" /></svg>
+              Get in touch
+            </a>
+          </div>
+
+          <!-- Accordion List -->
+          <div class="space-y-4 faq-stagger">
+            <!-- FAQ 1 -->
+            <details class="group bg-canvas rounded-md p-6 border border-border/60 transition-all duration-300" open>
+              <summary class="flex items-center justify-between font-semibold text-ink cursor-pointer list-none text-base">
+                <span>What is included in the initial session?</span>
+                <span class="w-7 h-7 rounded-full bg-white flex items-center justify-center text-ink text-lg font-normal shadow-sm transition-transform duration-300 group-open:rotate-45">+</span>
+              </summary>
+              <div class="pt-4 text-sm text-body leading-relaxed max-w-xl">
+                The initial consultation lasts 50 minutes and involves a complete assessment of your historical background, primary struggles, and setting immediate therapeutic goals.
+              </div>
+            </details>
+
+            <!-- FAQ 2 -->
+            <details class="group bg-canvas rounded-md p-6 border border-border/60 transition-all duration-300">
+              <summary class="flex items-center justify-between font-semibold text-ink cursor-pointer list-none text-base">
+                <span>How much does therapy cost?</span>
+                <span class="w-7 h-7 rounded-full bg-white flex items-center justify-center text-ink text-lg font-normal shadow-sm transition-transform duration-300 group-open:rotate-45">+</span>
+              </summary>
+              <div class="pt-4 text-sm text-body leading-relaxed max-w-xl">
+                Sessions are $180 for individuals (50 minutes) and $220 for couples (75 minutes). Sliding scale fees are available on a limited case-by-case basis.
+              </div>
+            </details>
+
+            <!-- FAQ 3 -->
+            <details class="group bg-canvas rounded-md p-6 border border-border/60 transition-all duration-300">
+              <summary class="flex items-center justify-between font-semibold text-ink cursor-pointer list-none text-base">
+                <span>How long does the therapy relationship last?</span>
+                <span class="w-7 h-7 rounded-full bg-white flex items-center justify-center text-ink text-lg font-normal shadow-sm transition-transform duration-300 group-open:rotate-45">+</span>
+              </summary>
+              <div class="pt-4 text-sm text-body leading-relaxed max-w-xl">
+                Clinical needs vary. Many clients complete short-term therapy goals within 12 to 16 sessions, while others prefer ongoing, deeper check-ins over a longer period.
+              </div>
+            </details>
+
+            <!-- FAQ 4 -->
+            <details class="group bg-canvas rounded-md p-6 border border-border/60 transition-all duration-300">
+              <summary class="flex items-center justify-between font-semibold text-ink cursor-pointer list-none text-base">
+                <span>Do you work with out-of-network insurance?</span>
+                <span class="w-7 h-7 rounded-full bg-white flex items-center justify-center text-ink text-lg font-normal shadow-sm transition-transform duration-300 group-open:rotate-45">+</span>
+              </summary>
+              <div class="pt-4 text-sm text-body leading-relaxed max-w-xl">
+                Yes. While we do not process insurance directly, we provide a structured monthly Superbill containing all required codes for out-of-network reimbursement.
+              </div>
+            </details>
+          </div>
+        </div>
+
+        <!-- Right Side: Large Rounded Image Card -->
+        <div class="lg:col-span-1 reveal-right lg:h-full lg:min-h-[500px]">
+          <div class="shadow-card rounded-lg bg-canvas-warm h-full w-full">
+            <div class="rounded-lg overflow-hidden h-full w-full group min-h-[350px]">
+              <img 
+                src="https://images.unsplash.com/photo-1576092768241-dec231879fc3?w=1000&auto=format&fit=crop&q=80" 
+                alt="Peaceful interior space highlighting natural light, thoughtful momentos, and tranquility" 
+                class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Cursive script signature below FAQ matching Vistaire's layout -->
+      <div class="text-center mt-12">
+        <span class="font-display italic text-2xl text-secondary block">crafted signature</span>
+        <span class="text-[9px] uppercase tracking-[0.25em] text-body block mt-1">For Private Practice</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Final CTA Section (Full-width dark container with large rounded corners) -->
+  <section class="py-20 md:py-28 bg-canvas">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="relative bg-ink rounded-lg p-12 md:p-20 text-center text-white overflow-hidden shadow-card-hover group">
+        <!-- Floating Ambient Glows (Agency signature detail) -->
+        <div class="absolute -top-20 -left-20 w-80 h-80 rounded-full bg-primary/10 blur-[100px] pointer-events-none"></div>
+        <div class="absolute -bottom-20 -right-20 w-80 h-80 rounded-full bg-secondary/10 blur-[100px] pointer-events-none"></div>
+        
+        <div class="relative z-10 max-w-2xl mx-auto space-y-8">
+          <span class="text-[10px] font-bold uppercase tracking-[0.25em] text-primary/80 block">Get Started</span>
+          <h2 class="font-sans font-bold text-4xl md:text-5xl lg:text-6xl text-white leading-tight tracking-tight">
+            Support begins with a <span class="font-display italic font-normal text-secondary">simple conversation</span>.
+          </h2>
+          
+          <p class="text-sm md:text-base text-zinc-400 max-w-lg mx-auto leading-relaxed">
+            Schedule a free 15-minute consultation to talk through your needs and explore how we can support you.
+          </p>
+          
+          <div class="pt-4">
+            <a 
+              href="/book" 
+              class="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-sm bg-white hover:bg-zinc-100 text-ink font-semibold text-sm transition-all duration-300 hover:shadow-lg active:scale-[0.98]"
+            >
+              Schedule Your Consultation
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="w-4 h-4 text-ink"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" /></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>

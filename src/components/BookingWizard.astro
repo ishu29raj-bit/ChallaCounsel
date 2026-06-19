@@ -1,0 +1,697 @@
+---
+// Client-side Booking Wizard
+---
+
+<div class="w-full max-w-3xl mx-auto bg-card rounded-lg border border-border/50 overflow-hidden shadow-card">
+  
+  <!-- Premium Step Progress Indicator -->
+  <div class="border-b border-border/50 bg-canvas px-8 sm:px-10 py-6">
+    <div class="flex items-center justify-between max-w-xl mx-auto">
+      <div id="step-indicator-1" class="step-item active" data-step="1">
+        <div class="step-circle">
+          <span class="step-number">1</span>
+          <svg class="step-check w-4 h-4 hidden" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="3" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>
+        </div>
+        <span class="step-label"><span class="hidden sm:inline">Service</span><span class="sm:hidden">1</span></span>
+      </div>
+      <div class="step-line"><div class="step-line-fill"></div></div>
+      <div id="step-indicator-2" class="step-item" data-step="2">
+        <div class="step-circle">
+          <span class="step-number">2</span>
+          <svg class="step-check w-4 h-4 hidden" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="3" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>
+        </div>
+        <span class="step-label"><span class="hidden sm:inline">Date & Time</span><span class="sm:hidden">2</span></span>
+      </div>
+      <div class="step-line"><div class="step-line-fill"></div></div>
+      <div id="step-indicator-3" class="step-item" data-step="3">
+        <div class="step-circle">
+          <span class="step-number">3</span>
+          <svg class="step-check w-4 h-4 hidden" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="3" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>
+        </div>
+        <span class="step-label"><span class="hidden sm:inline">Details</span><span class="sm:hidden">3</span></span>
+      </div>
+      <div class="step-line"><div class="step-line-fill"></div></div>
+      <div id="step-indicator-4" class="step-item" data-step="4">
+        <div class="step-circle">
+          <span class="step-number">4</span>
+          <svg class="step-check w-4 h-4 hidden" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="3" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>
+        </div>
+        <span class="step-label"><span class="hidden sm:inline">Confirm</span><span class="sm:hidden">4</span></span>
+      </div>
+    </div>
+  </div>
+
+  <div class="p-8 sm:p-10">
+    
+    <!-- STEP 1: SERVICE SELECTION -->
+    <div id="booking-step-1" class="booking-step space-y-7">
+      <div>
+        <h2 class="font-sans font-bold text-2xl text-ink mb-2">Choose a Service</h2>
+        <p class="text-sm text-body leading-relaxed">Select the session format that best fits your needs.</p>
+      </div>
+
+      <div class="grid grid-cols-1 gap-5">
+        <button type="button" class="service-card text-left p-6 rounded-md bg-canvas border-2 border-border/50 hover:border-secondary cursor-pointer focus:outline-none transition-all duration-300"
+          data-service-id="discovery" data-service-name="Discovery Call" data-service-duration="15 min" data-service-price="Free">
+          <div class="flex justify-between items-start mb-3">
+            <span class="text-[10px] font-bold uppercase tracking-wider text-body bg-canvas-warm px-3 py-1.5 rounded-sm">Discovery</span>
+            <span class="font-sans font-bold text-lg text-secondary">Free</span>
+          </div>
+          <h3 class="font-sans font-bold text-lg text-ink mb-1">15-Minute Consultation Call</h3>
+          <p class="text-sm text-body mb-3">A brief phone or secure video call to map out goals and test mutual chemistry.</p>
+          <span class="text-xs text-body flex items-center gap-2">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor" class="w-4 h-4 text-secondary"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" /></svg>
+            15 minutes &bull; Phone Call
+          </span>
+        </button>
+
+        <button type="button" class="service-card text-left p-6 rounded-md bg-canvas border-2 border-border/50 hover:border-primary cursor-pointer focus:outline-none transition-all duration-300"
+          data-service-id="individual" data-service-name="Individual Counselling" data-service-duration="50 min" data-service-price="$180">
+          <div class="flex justify-between items-start mb-3">
+            <span class="text-[10px] font-bold uppercase tracking-wider text-body bg-canvas-warm px-3 py-1.5 rounded-sm">Individual</span>
+            <span class="font-sans font-bold text-lg text-secondary">$180</span>
+          </div>
+          <h3 class="font-sans font-bold text-lg text-ink mb-1">Individual Counselling</h3>
+          <p class="text-sm text-body mb-3">Dedicated clinical support for anxiety, depression, career counselling, and life changes.</p>
+          <span class="text-xs text-body flex items-center gap-2">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor" class="w-4 h-4 text-primary"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" /></svg>
+            50 minutes &bull; Telehealth or In-Person
+          </span>
+        </button>
+
+        <button type="button" class="service-card text-left p-6 rounded-md bg-canvas border-2 border-border/50 hover:border-primary cursor-pointer focus:outline-none transition-all duration-300"
+          data-service-id="couples" data-service-name="Couples & Family Counselling" data-service-duration="75 min" data-service-price="$220">
+          <div class="flex justify-between items-start mb-3">
+            <span class="text-[10px] font-bold uppercase tracking-wider text-body bg-canvas-warm px-3 py-1.5 rounded-sm">Relationship</span>
+            <span class="font-sans font-bold text-lg text-secondary">$220</span>
+          </div>
+          <h3 class="font-sans font-bold text-lg text-ink mb-1">Couples & Family Counselling</h3>
+          <p class="text-sm text-body mb-3">Rebuild trust, break conflict patterns, and develop relational intimacy.</p>
+          <span class="text-xs text-body flex items-center gap-2">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor" class="w-4 h-4 text-primary"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" /></svg>
+            75 minutes &bull; Telehealth or In-Person
+          </span>
+        </button>
+
+        <button type="button" class="service-card text-left p-6 rounded-md bg-canvas border-2 border-border/50 hover:border-primary cursor-pointer focus:outline-none transition-all duration-300"
+          data-service-id="premarital" data-service-name="Premarital Counselling" data-service-duration="50 min" data-service-price="$180">
+          <div class="flex justify-between items-start mb-3">
+            <span class="text-[10px] font-bold uppercase tracking-wider text-body bg-canvas-warm px-3 py-1.5 rounded-sm">Premarital</span>
+            <span class="font-sans font-bold text-lg text-secondary">$180</span>
+          </div>
+          <h3 class="font-sans font-bold text-lg text-ink mb-1">Premarital Counselling</h3>
+          <p class="text-sm text-body mb-3">Build a strong marital foundation, clarify values, and align on future goals.</p>
+          <span class="text-xs text-body flex items-center gap-2">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor" class="w-4 h-4 text-primary"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" /></svg>
+            50 minutes &bull; Telehealth or In-Person
+          </span>
+        </button>
+      </div>
+
+      <div class="flex justify-end pt-6 border-t border-border/55">
+        <button id="btn-goto-step2" disabled class="px-8 py-3.5 rounded-sm bg-primary/45 text-ink disabled:opacity-50 font-semibold text-sm transition-all duration-300 cursor-not-allowed">Continue</button>
+      </div>
+    </div>
+
+    <!-- STEP 2: DATE & TIME -->
+    <div id="booking-step-2" class="booking-step hidden space-y-7">
+      <div>
+        <h2 class="font-sans font-bold text-2xl text-ink mb-2">Schedule Session</h2>
+        <p class="text-sm text-body leading-relaxed">Select an available date and time slot.</p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+        <div class="lg:col-span-7 bg-canvas p-6 rounded-md border border-border/50">
+          <div class="flex justify-between items-center mb-6">
+            <h3 id="calendar-month-year" class="font-sans font-bold text-ink">June 2026</h3>
+            <div class="flex gap-2">
+              <button type="button" id="calendar-prev" class="w-8 h-8 rounded-sm hover:bg-canvas-warm flex items-center justify-center text-ink transition-colors cursor-pointer border border-border/40">&larr;</button>
+              <button type="button" id="calendar-next" class="w-8 h-8 rounded-sm hover:bg-canvas-warm flex items-center justify-center text-ink transition-colors cursor-pointer border border-border/40">&rarr;</button>
+            </div>
+          </div>
+          <div class="grid grid-cols-7 text-center text-[10px] font-bold uppercase tracking-wider text-body mb-3">
+            <div>Su</div><div>Mo</div><div>Tu</div><div>We</div><div>Th</div><div>Fr</div><div>Sa</div>
+          </div>
+          <div id="calendar-days" class="grid grid-cols-7 gap-y-2 text-center text-sm"></div>
+        </div>
+
+        <div class="lg:col-span-5 flex flex-col">
+          <h3 class="font-sans font-bold text-ink mb-4 flex items-center gap-2">
+            <span>Available Slots</span>
+            <span id="selected-date-badge" class="text-[10px] px-2 py-0.5 rounded-sm bg-primary/20 text-ink font-semibold hidden">Jun 15</span>
+          </h3>
+          <div id="time-slots-container" class="space-y-3 flex-grow overflow-y-auto max-h-[320px] p-3 pr-3">
+            <p class="text-sm text-body italic">Select a date first.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="flex justify-between pt-6 border-t border-border/55">
+        <button id="btn-back-to-step1" class="px-7 py-3 rounded-sm border border-border bg-white text-ink hover:bg-canvas-warm font-semibold text-sm transition-colors cursor-pointer">Back</button>
+        <button id="btn-goto-step3" disabled class="px-8 py-3.5 rounded-sm bg-primary/45 text-ink disabled:opacity-50 font-semibold text-sm transition-colors cursor-not-allowed">Continue</button>
+      </div>
+    </div>
+
+    <!-- STEP 3: DETAILS -->
+    <div id="booking-step-3" class="booking-step hidden space-y-7">
+      <div>
+        <h2 class="font-sans font-bold text-2xl text-ink mb-2">Personal Details</h2>
+        <p class="text-sm text-body leading-relaxed">All data is kept strictly confidential under HIPAA guidelines.</p>
+      </div>
+
+      <form id="booking-form" class="space-y-5" novalidate>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+          <div class="flex flex-col gap-1.5">
+            <label for="client-name" class="text-[10px] font-bold uppercase tracking-wider text-body">Full Name</label>
+            <input type="text" id="client-name" required placeholder="Elena Vance" class="w-full bg-canvas text-ink border border-border rounded-sm px-5 py-3.5 text-sm focus:border-secondary focus:outline-none transition-colors" />
+            <span id="error-name" class="text-[11px] text-secondary font-medium hidden">Please enter your full name.</span>
+          </div>
+          <div class="flex flex-col gap-1.5">
+            <label for="client-email" class="text-[10px] font-bold uppercase tracking-wider text-body">Email Address</label>
+            <input type="email" id="client-email" required placeholder="elena@example.com" class="w-full bg-canvas text-ink border border-border rounded-sm px-5 py-3.5 text-sm focus:border-secondary focus:outline-none transition-colors" />
+            <span id="error-email" class="text-[11px] text-secondary font-medium hidden">Please enter a valid email address.</span>
+          </div>
+        </div>
+        <div class="flex flex-col gap-1.5">
+          <label for="client-phone" class="text-[10px] font-bold uppercase tracking-wider text-body">Phone Number</label>
+          <input type="tel" id="client-phone" required placeholder="(212) 555-0198" class="w-full bg-canvas text-ink border border-border rounded-sm px-5 py-3.5 text-sm focus:border-secondary focus:outline-none transition-colors" />
+          <span id="error-phone" class="text-[11px] text-secondary font-medium hidden">Please enter a valid phone number.</span>
+        </div>
+        <div class="flex flex-col gap-1.5">
+          <label for="client-notes" class="text-[10px] font-bold uppercase tracking-wider text-body">What brings you to therapy? (Optional)</label>
+          <textarea id="client-notes" rows="4" placeholder="Briefly share what you'd like support with..." class="w-full bg-canvas text-ink border border-border rounded-sm px-5 py-3.5 text-sm focus:border-secondary focus:outline-none transition-colors resize-none"></textarea>
+        </div>
+      </form>
+
+      <div class="flex justify-between pt-6 border-t border-border/55">
+        <button id="btn-back-to-step2" class="px-7 py-3 rounded-sm border border-border bg-white text-ink hover:bg-canvas-warm font-semibold text-sm transition-colors cursor-pointer">Back</button>
+        <button type="button" id="btn-submit-booking" class="px-8 py-3.5 rounded-sm bg-primary hover:bg-primary-dark text-ink font-semibold text-sm transition-colors cursor-pointer">Submit Booking</button>
+      </div>
+    </div>
+
+    <!-- STEP 4: SUCCESS -->
+    <div id="booking-step-4" class="booking-step hidden text-center space-y-7 py-10">
+      <div class="w-16 h-16 rounded-md bg-primary/10 text-secondary flex items-center justify-center mx-auto mb-4">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="w-8 h-8"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>
+      </div>
+      <div>
+        <h2 class="font-sans font-bold text-3xl text-ink mb-3">Appointment Requested</h2>
+        <p class="text-sm text-body max-w-md mx-auto">Challa's Counsel will review your requested session and respond within 24 hours to confirm. A confirmation email with your Google Meet link has been sent.</p>
+      </div>
+      <div class="max-w-md mx-auto p-6 rounded-md bg-canvas border border-border/55 text-left space-y-4 shadow-sm">
+        <h3 class="font-sans font-bold text-[10px] uppercase tracking-wider text-secondary border-b border-border/55 pb-2">Session Details</h3>
+        <div class="grid grid-cols-3 gap-2.5 text-sm">
+          <span class="text-body font-medium">Service:</span><span id="summary-service" class="col-span-2 font-semibold text-ink">Individual</span>
+          <span class="text-body font-medium">Duration:</span><span id="summary-duration" class="col-span-2 text-ink">50 min</span>
+          <span class="text-body font-medium">Date:</span><span id="summary-datetime" class="col-span-2 font-semibold text-ink">June 15</span>
+          <span class="text-body font-medium">Rate:</span><span id="summary-price" class="col-span-2 text-ink">$180</span>
+          <span class="text-body font-medium">Ref:</span><span id="summary-ref" class="col-span-2 font-mono text-secondary font-bold">CC-9481</span>
+        </div>
+      </div>
+      
+      <!-- Google Meet Link -->
+      <div id="meet-link-container" class="hidden">
+        <a id="meet-link" href="#" target="_blank" class="w-full inline-flex items-center justify-center gap-2 px-8 py-4 rounded-sm bg-primary hover:bg-primary-dark text-white font-semibold text-sm transition-all duration-300 shadow-md">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 10.5l4.72-4.72a.75.75 0 011.28.53v11.38a.75.75 0 01-1.28.53l-4.72-4.72M4.5 18.75h9a2.25 2.25 0 002.25-2.25v-9a2.25 2.25 0 00-2.25-2.25h-9A2.25 2.25 0 002.25 7.5v9a2.25 2.25 0 002.25 2.25z" /></svg>
+          Join Google Meet Session
+        </a>
+        <p class="text-xs text-body text-center mt-3">A calendar invite has been sent to your email</p>
+      </div>
+      
+      <div class="pt-2">
+        <a href="/" class="inline-flex items-center justify-center px-8 py-3.5 rounded-sm bg-ink hover:bg-zinc-800 text-white font-semibold text-sm transition-colors">Return to Home</a>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<style is:global>
+  /* ---------- Premium Step Indicator ---------- */
+  .step-item {
+    display: flex; flex-direction: column; align-items: center; gap: 8px;
+    flex-shrink: 0; cursor: default; transition: all 0.3s ease;
+  }
+  .step-circle {
+    width: 32px; height: 32px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 13px; font-weight: 700;
+    border: 2px solid var(--color-border);
+    color: var(--color-body);
+    background: transparent;
+    transition: all 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+    position: relative;
+  }
+  .step-check { display: none; }
+  .step-number { display: block; }
+  .step-label {
+    font-size: 11px; font-weight: 600; text-transform: uppercase;
+    letter-spacing: 0.06em; color: var(--color-body); white-space: nowrap;
+    transition: color 0.3s ease;
+  }
+  /* Active step */
+  .step-item.active .step-circle {
+    background: var(--color-primary); border-color: var(--color-primary);
+    color: var(--color-ink); box-shadow: 0 0 0 4px rgba(107, 143, 113, 0.25), 0 0 12px rgba(107, 143, 113, 0.40);
+    transform: scale(1.05);
+  }
+  .step-item.active .step-label {
+    color: var(--color-ink); font-weight: 700;
+  }
+  /* Completed step */
+  .step-item.completed .step-circle {
+    background: var(--color-primary); border-color: var(--color-primary);
+    color: var(--color-ink);
+  }
+  .step-item.completed .step-check { display: block; }
+  .step-item.completed .step-number { display: none; }
+  .step-item.completed .step-label {
+    color: var(--color-ink); opacity: 0.7;
+  }
+  /* Connecting lines */
+  .step-line {
+    flex: 1; height: 2px; background: var(--color-border); margin: 0 4px;
+    border-radius: 2px; overflow: hidden; align-self: center;
+    margin-bottom: 12px;
+  }
+  .step-line-fill {
+    height: 100%; width: 0; background: var(--color-primary);
+    transition: width 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+    border-radius: 2px;
+  }
+  .step-line-fill.completed { width: 100%; }
+  /* ---------- /Premium Step Indicator ---------- */
+
+  .service-card.active {
+    border-color: var(--color-secondary) !important;
+    background-color: color-mix(in srgb, var(--color-secondary) 6%, transparent);
+    box-shadow: 0 0 0 1px var(--color-secondary), 0 0 16px rgba(200, 149, 122, 0.25);
+  }
+  .day-btn {
+    width: 100%; aspect-ratio: 1; max-width: 44px;
+    border-radius: 50%;
+    display: inline-flex; align-items: center; justify-content: center;
+    cursor: pointer; font-weight: 500; transition: all 0.15s ease;
+    min-height: 40px;
+  }
+  .day-btn:disabled { cursor: not-allowed; opacity: 0.15; }
+  .day-btn.active {
+    border-color: var(--color-secondary) !important;
+    background-color: color-mix(in srgb, var(--color-secondary) 12%, transparent) !important;
+    color: var(--color-ink) !important;
+    font-weight: 700;
+    box-shadow: 0 0 0 1.5px var(--color-secondary), 0 0 12px rgba(200, 149, 122, 0.40);
+  }
+  .time-slot.active {
+    border-color: var(--color-secondary) !important;
+    background-color: color-mix(in srgb, var(--color-secondary) 12%, transparent) !important;
+    color: var(--color-ink) !important;
+    font-weight: 700;
+    box-shadow: 0 0 0 1.5px var(--color-secondary), 0 0 16px rgba(200, 149, 122, 0.40);
+  }
+
+  /* Smooth Step Transition Animation */
+  @keyframes step-fade-in {
+    from {
+      opacity: 0;
+      transform: translateY(12px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  .booking-step:not(.hidden) {
+    animation: step-fade-in 0.45s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
+  /* ── Dark Mode Booking Wizard ── */
+  /* Step progress bar bg */
+  :where(.dark, .dark *) .step-circle {
+    border-color: rgba(255,255,255,0.14) !important;
+    color: rgba(210, 225, 213, 0.55) !important;
+  }
+  :where(.dark, .dark *) .step-label {
+    color: rgba(210, 225, 213, 0.55) !important;
+  }
+  :where(.dark, .dark *) .step-item.active .step-circle {
+    background-color: var(--color-primary) !important;
+    border-color: var(--color-primary) !important;
+    color: #111111 !important;
+  }
+  :where(.dark, .dark *) .step-item.active .step-label {
+    color: #DFE8E0 !important;
+    font-weight: 700 !important;
+  }
+  :where(.dark, .dark *) .step-item.completed .step-circle {
+    background-color: var(--color-primary) !important;
+    border-color: var(--color-primary) !important;
+    color: #111111 !important;
+  }
+  :where(.dark, .dark *) .step-item.completed .step-label {
+    color: rgba(210, 225, 213, 0.65) !important;
+  }
+  :where(.dark, .dark *) .step-line {
+    background-color: rgba(255,255,255,0.10) !important;
+  }
+
+  /* Service cards */
+  :where(.dark, .dark *) .service-card {
+    background-color: var(--color-canvas) !important;  /* picks up dark #0F1210 */
+    border-color: rgba(255,255,255,0.09) !important;
+    color: #DFE8E0 !important;
+  }
+  :where(.dark, .dark *) .service-card h3 { color: #DFE8E0 !important; }
+  :where(.dark, .dark *) .service-card p { color: rgba(210,225,213,0.68) !important; }
+  :where(.dark, .dark *) .service-card span.text-body { color: rgba(210,225,213,0.55) !important; }
+  :where(.dark, .dark *) .service-card .bg-canvas-warm {
+    background-color: var(--color-canvas-warm) !important;  /* dark #1A1F1B */
+    color: rgba(210,225,213,0.70) !important;
+  }
+  :where(.dark, .dark *) .service-card:hover {
+    border-color: rgba(255,255,255,0.18) !important;
+    background-color: var(--color-canvas-warm) !important;
+  }
+
+  /* Calendar container */
+  :where(.dark, .dark *) #calendar-month-year { color: #DFE8E0 !important; }
+  :where(.dark, .dark *) .day-btn {
+    color: #DFE8E0 !important;
+  }
+  :where(.dark, .dark *) .day-btn:hover:not(:disabled) {
+    background-color: #252D26 !important;
+    color: #DFE8E0 !important;
+  }
+  :where(.dark, .dark *) .day-btn:disabled { opacity: 0.20 !important; }
+  :where(.dark, .dark *) #calendar-prev,
+  :where(.dark, .dark *) #calendar-next {
+    color: #DFE8E0 !important;
+    border-color: rgba(255,255,255,0.10) !important;
+  }
+  :where(.dark, .dark *) #calendar-prev:hover,
+  :where(.dark, .dark *) #calendar-next:hover {
+    background-color: #252D26 !important;
+  }
+
+  /* Time slots */
+  :where(.dark, .dark *) .time-slot {
+    color: #DFE8E0 !important;
+    border-color: rgba(255,255,255,0.10) !important;
+  }
+  :where(.dark, .dark *) .time-slot:hover {
+    background-color: #252D26 !important;
+    border-color: rgba(255,255,255,0.20) !important;
+    color: #DFE8E0 !important;
+  }
+  :where(.dark, .dark *) #time-slots-container p {
+    color: rgba(210,225,213,0.60) !important;
+  }
+  :where(.dark, .dark *) #selected-date-badge {
+    color: #DFE8E0 !important;
+  }
+
+  /* Step 3 form inputs */
+  :where(.dark, .dark *) .booking-step input,
+  :where(.dark, .dark *) .booking-step textarea {
+    background-color: #161B17 !important;
+    color: #DFE8E0 !important;
+    border-color: rgba(255,255,255,0.10) !important;
+  }
+  :where(.dark, .dark *) .booking-step input::placeholder,
+  :where(.dark, .dark *) .booking-step textarea::placeholder {
+    color: rgba(210,225,213,0.30) !important;
+  }
+  :where(.dark, .dark *) .booking-step input:focus,
+  :where(.dark, .dark *) .booking-step textarea:focus {
+    border-color: var(--color-secondary) !important;
+  }
+
+  /* Back buttons */
+  :where(.dark, .dark *) #btn-back-to-step1,
+  :where(.dark, .dark *) #btn-back-to-step2 {
+    background-color: #1A1F1B !important;
+    border-color: rgba(255,255,255,0.10) !important;
+    color: #DFE8E0 !important;
+  }
+  :where(.dark, .dark *) #btn-back-to-step1:hover,
+  :where(.dark, .dark *) #btn-back-to-step2:hover {
+    background-color: #252D26 !important;
+  }
+
+  /* Selected day/time in dark mode — glowing orange text & outline */
+  :where(.dark, .dark *) .day-btn.active {
+    background-color: transparent !important;
+    color: #D4A08A !important;
+    border-color: #C8957A !important;
+    box-shadow: 0 0 0 1.5px #C8957A, 0 0 10px rgba(200, 149, 122, 0.45), inset 0 0 6px rgba(200, 149, 122, 0.15) !important;
+    text-shadow: 0 0 6px rgba(200, 149, 122, 0.6) !important;
+  }
+  :where(.dark, .dark *) .time-slot.active {
+    background-color: transparent !important;
+    color: #D4A08A !important;
+    border-color: #C8957A !important;
+    box-shadow: 0 0 0 1.5px #C8957A, 0 0 10px rgba(200, 149, 122, 0.50), inset 0 0 6px rgba(200, 149, 122, 0.12) !important;
+    text-shadow: 0 0 6px rgba(200, 149, 122, 0.6) !important;
+    margin: 2px 0 !important;
+  }
+
+  /* Step 4 success summary box */
+  :where(.dark, .dark *) #booking-step-4 .bg-canvas {
+    background-color: var(--color-card) !important;
+    border-color: rgba(255,255,255,0.08) !important;
+  }
+  :where(.dark, .dark *) #booking-step-4 h2 { color: #DFE8E0 !important; }
+  :where(.dark, .dark *) #booking-step-4 p { color: rgba(210,225,213,0.68) !important; }
+  :where(.dark, .dark *) #booking-step-4 span.text-body { color: rgba(210,225,213,0.60) !important; }
+  :where(.dark, .dark *) #booking-step-4 span.text-ink { color: #DFE8E0 !important; }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    let selectedDate: any = null;
+    let selectedTime: any = null;
+    const state = { serviceId: null, serviceName: null, duration: null, price: null, dateString: null, timeString: null };
+
+    const steps = [
+      document.getElementById('booking-step-1'), 
+      document.getElementById('booking-step-2'), 
+      document.getElementById('booking-step-3'), 
+      document.getElementById('booking-step-4')
+    ];
+    const indicators = [
+      document.getElementById('step-indicator-1'), 
+      document.getElementById('step-indicator-2'), 
+      document.getElementById('step-indicator-3'), 
+      document.getElementById('step-indicator-4')
+    ];
+    const stepLines = document.querySelectorAll('.step-line-fill');
+
+    function showStep(n: number) {
+      steps.forEach(function(s, i) { if (s) s.classList.toggle('hidden', i !== n - 1); });
+      indicators.forEach(function(ind, i) {
+        if (!ind) return;
+        ind.classList.remove('active', 'completed');
+        if (i < n - 1) {
+          ind.classList.add('completed');
+        } else if (i === n - 1) {
+          ind.classList.add('active');
+        }
+      });
+      stepLines.forEach(function(line, i) {
+        line.classList.toggle('completed', i < n - 1);
+      });
+    }
+
+    // Step 1
+    const serviceCards = document.querySelectorAll('.service-card');
+    const btn2 = document.getElementById('btn-goto-step2') as HTMLButtonElement | null;
+    serviceCards.forEach(function(card) {
+      card.addEventListener('click', function() {
+        serviceCards.forEach(function(c) { c.classList.remove('active'); });
+        card.classList.add('active');
+        state.serviceId = card.getAttribute('data-service-id') as any;
+        state.serviceName = card.getAttribute('data-service-name') as any;
+        state.duration = card.getAttribute('data-service-duration') as any;
+        state.price = card.getAttribute('data-service-price') as any;
+        if (btn2) {
+          btn2.disabled = false;
+          btn2.classList.remove('bg-primary/45', 'cursor-not-allowed');
+          btn2.classList.add('bg-primary', 'hover:bg-primary-dark', 'cursor-pointer');
+        }
+      });
+    });
+    if (btn2) btn2.addEventListener('click', function() { showStep(2); initCalendar(); });
+
+    // Step 2
+    const calMonth = document.getElementById('calendar-month-year');
+    const calDays = document.getElementById('calendar-days');
+    const dateBadge = document.getElementById('selected-date-badge');
+    const slotsEl = document.getElementById('time-slots-container');
+    const btn3 = document.getElementById('btn-goto-step3') as HTMLButtonElement | null;
+    const months = ["January","February","March","April","May","June","July","August","September","October","November","December"];
+    let curMonth = new Date().getMonth(), curYear = new Date().getFullYear();
+
+    function initCalendar() { renderCalendar(); }
+    function renderCalendar() {
+      if (!calMonth || !calDays) return;
+      calMonth.textContent = months[curMonth] + ' ' + curYear;
+      calDays.innerHTML = '';
+      const first = new Date(curYear, curMonth, 1).getDay();
+      const last = new Date(curYear, curMonth + 1, 0).getDate();
+      const today = new Date(); today.setHours(0,0,0,0);
+      for (let i = 0; i < first; i++) calDays.appendChild(document.createElement('div'));
+      for (let d = 1; d <= last; d++) {
+        const btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = 'day-btn text-ink hover:bg-canvas-warm border border-transparent';
+        btn.textContent = d.toString();
+        const dt = new Date(curYear, curMonth, d);
+        if (dt < today || dt.getDay() === 0) { btn.disabled = true; }
+        else {
+          btn.addEventListener('click', function() {
+            document.querySelectorAll('.day-btn').forEach(function(b) { b.classList.remove('active'); });
+            btn.classList.add('active');
+            selectedDate = dt;
+            state.dateString = dt.toLocaleDateString('en-US', { weekday:'long', year:'numeric', month:'long', day:'numeric' }) as any;
+            if (dateBadge) { 
+              dateBadge.textContent = dt.toLocaleDateString('en-US', { month:'short', day:'numeric' }); 
+              dateBadge.classList.remove('hidden'); 
+            }
+            renderSlots();
+          });
+        }
+        if (selectedDate && selectedDate.getDate() === d && selectedDate.getMonth() === curMonth && selectedDate.getFullYear() === curYear) btn.classList.add('active');
+        calDays.appendChild(btn);
+      }
+    }
+
+    document.getElementById('calendar-prev')?.addEventListener('click', function() {
+      const today = new Date();
+      if (curYear > today.getFullYear() || (curYear === today.getFullYear() && curMonth > today.getMonth())) {
+        curMonth--; if (curMonth < 0) { curMonth = 11; curYear--; }
+        renderCalendar();
+      }
+    });
+    document.getElementById('calendar-next')?.addEventListener('click', function() { 
+      curMonth++; if (curMonth > 11) { curMonth = 0; curYear++; } 
+      renderCalendar(); 
+    });
+
+    const times = ["9:00 AM","10:30 AM","1:00 PM","2:30 PM","4:00 PM","5:30 PM"];
+    function renderSlots() {
+      if (!slotsEl) return;
+      slotsEl.innerHTML = '';
+      times.forEach(function(t) {
+        const btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = 'time-slot w-full text-left p-3.5 rounded-md hover:bg-canvas-warm hover:border-secondary border border-border/60 font-medium text-sm text-ink transition-all cursor-pointer';
+        btn.textContent = t;
+        btn.addEventListener('click', function() {
+          document.querySelectorAll('.time-slot').forEach(function(s) { s.classList.remove('active'); });
+          btn.classList.add('active');
+          selectedTime = t; state.timeString = t as any;
+          if (btn3) {
+            btn3.disabled = false;
+            btn3.classList.remove('bg-primary/45', 'cursor-not-allowed');
+            btn3.classList.add('bg-primary', 'hover:bg-primary-dark', 'cursor-pointer');
+          }
+        });
+        if (selectedTime === t) btn.classList.add('active');
+        slotsEl.appendChild(btn);
+      });
+    }
+
+    document.getElementById('btn-back-to-step1')?.addEventListener('click', function() { showStep(1); });
+    if (btn3) btn3.addEventListener('click', function() { showStep(3); });
+    document.getElementById('btn-back-to-step2')?.addEventListener('click', function() { showStep(2); });
+
+    // Step 3
+    document.getElementById('btn-submit-booking')?.addEventListener('click', function(e) {
+      e.preventDefault();
+      const name = document.getElementById('client-name') as HTMLInputElement | null;
+      const email = document.getElementById('client-email') as HTMLInputElement | null;
+      const phone = document.getElementById('client-phone') as HTMLInputElement | null;
+      
+      const errName = document.getElementById('error-name');
+      const errEmail = document.getElementById('error-email');
+      const errPhone = document.getElementById('error-phone');
+      
+      let isValid = true;
+      
+      if (name) {
+        if (!name.value.trim()) {
+          name.classList.add('border-secondary');
+          if (errName) errName.classList.remove('hidden');
+          isValid = false;
+        } else {
+          name.classList.remove('border-secondary');
+          if (errName) errName.classList.add('hidden');
+        }
+      }
+      
+      if (email) {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!email.value.trim() || !emailRegex.test(email.value.trim())) {
+          email.classList.add('border-secondary');
+          if (errEmail) errEmail.classList.remove('hidden');
+          isValid = false;
+        } else {
+          email.classList.remove('border-secondary');
+          if (errEmail) errEmail.classList.add('hidden');
+        }
+      }
+      
+      if (phone) {
+        if (!phone.value.trim() || phone.value.trim().length < 7) {
+          phone.classList.add('border-secondary');
+          if (errPhone) errPhone.classList.remove('hidden');
+          isValid = false;
+        } else {
+          phone.classList.remove('border-secondary');
+          if (errPhone) errPhone.classList.add('hidden');
+        }
+      }
+      
+      if (!isValid) return;
+
+      const ref = 'CC-' + Math.floor(1000 + Math.random() * 9000);
+      const summaryService = document.getElementById('summary-service');
+      const summaryDuration = document.getElementById('summary-duration');
+      const summaryDatetime = document.getElementById('summary-datetime');
+      const summaryPrice = document.getElementById('summary-price');
+      const summaryRef = document.getElementById('summary-ref');
+      
+      if (summaryService) summaryService.textContent = state.serviceName || '';
+      if (summaryDuration) summaryDuration.textContent = state.duration || '';
+      if (summaryDatetime) summaryDatetime.textContent = (state.dateString || '') + ' at ' + (state.timeString || '');
+      if (summaryPrice) summaryPrice.textContent = state.price || '';
+      if (summaryRef) summaryRef.textContent = ref;
+      
+      // Send to Google Apps Script
+      const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycby3__N5Y-7lGGuvpO8Q7T3rVRDH9VHNGsxkJH2IrH2X1rIrTPcVMHh4t0RNZg0qijf3/exec';
+      
+      const payload = JSON.stringify({
+        serviceName: state.serviceName,
+        duration: state.duration,
+        dateString: state.dateString,
+        timeString: state.timeString,
+        clientName: name?.value.trim(),
+        clientEmail: email?.value.trim(),
+        clientPhone: phone?.value.trim(),
+        clientNotes: document.getElementById('client-notes')?.value?.trim() || '',
+        ref: ref
+      });
+      
+      // Show success page immediately
+      showStep(4);
+      
+      // Fire-and-forget: send to Apps Script (no-cors so it won't block UI)
+      fetch(APPS_SCRIPT_URL, {
+        method: 'POST',
+        mode: 'no-cors',
+        body: payload
+      }).catch(function() {});
+    });
+  });
+</script>
+

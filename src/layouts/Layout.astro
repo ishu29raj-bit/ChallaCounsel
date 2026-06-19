@@ -1,0 +1,131 @@
+---
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import '../styles/global.css';
+
+interface Props {
+	title?: string;
+	description?: string;
+}
+
+const { 
+	title = "Challa's Counsel | Professional Counseling Services", 
+	description = "Challa's Counsel offers professional counselling services including individual, couples, career, and family counselling to help you heal and grow."
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="icon" href="/favicon.ico" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title}</title>
+		<meta name="description" content={description} />
+		<meta name="theme-color" id="theme-color" content="#F5F5F3" />
+		
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+		<script is:inline>
+			const theme = (() => {
+				if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
+					return localStorage.getItem('theme');
+				}
+				if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+					return 'dark';
+				}
+				return 'light';
+			})();
+			if (theme === 'dark') {
+				document.documentElement.classList.add('dark');
+				document.getElementById('theme-color')?.setAttribute('content', '#111111');
+			} else {
+				document.documentElement.classList.remove('dark');
+				document.getElementById('theme-color')?.setAttribute('content', '#F5F5F3');
+			}
+		</script>
+	</head>
+	<body class="bg-canvas dark:bg-[#0F1210] text-ink dark:text-[#DFE8E0] min-h-screen flex flex-col font-sans transition-colors duration-400">
+		<Header />
+		<main class="flex-grow">
+			<slot />
+		</main>
+		<Footer />
+	</body>
+</html>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    // ── Standard reveal observer ──
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('revealed');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -60px 0px' });
+
+    document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale, .stagger-children').forEach(el => {
+      observer.observe(el);
+    });
+
+    // ── Word-by-word motion blur observer ──
+    const wordObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const el = entry.target;
+
+          // Split text nodes into word spans, preserving HTML structure
+          const walker = document.createTreeWalker(el, NodeFilter.SHOW_TEXT, null, false);
+          const textNodes = [];
+          while (walker.nextNode()) textNodes.push(walker.currentNode);
+
+          let wordIdx = 0;
+          textNodes.forEach(node => {
+            const text = node.textContent;
+            if (!text.trim()) return;
+
+            const parts = text.split(/(\s+)/);
+            const frag = document.createDocumentFragment();
+            parts.forEach(part => {
+              if (/^\s+$/.test(part)) {
+                frag.appendChild(document.createTextNode(part));
+              } else if (part.length > 0) {
+                const span = document.createElement('span');
+                span.className = 'word';
+                span.style.transitionDelay = `${wordIdx * 48}ms`;
+                span.textContent = part;
+                frag.appendChild(span);
+                wordIdx++;
+              }
+            });
+
+            node.parentNode.replaceChild(frag, node);
+          });
+
+          // Trigger animation
+          requestAnimationFrame(() => {
+            el.classList.add('words-revealed');
+          });
+
+          // Clean up will-change after animation completes
+          const words = el.querySelectorAll('.word');
+          setTimeout(() => {
+            words.forEach(w => w.style.willChange = 'auto');
+          }, 1000);
+
+          wordObserver.unobserve(el);
+        }
+      });
+    }, { threshold: 0.15 });
+
+    document.querySelectorAll('[data-animate="words"]').forEach(el => {
+      wordObserver.observe(el);
+    });
+  });
+</script>
